@@ -1,0 +1,955 @@
+@import "../../../css/boxes";
+
+$boxBorder: 1px solid $amePostboxBorderColor;
+$boxTopPadding: 10px;
+$boxLeftPadding: 8px;
+$boxPadding: $boxTopPadding $boxLeftPadding;
+
+$capViewContainerPaddingLeft: $boxTopPadding;
+$capViewContainerPaddingTop: $boxTopPadding;
+
+$onePermissionHeight: 27px;
+
+@mixin ame-postbox {
+	border: $boxBorder;
+	background: #fff;
+	box-shadow: $amePostboxShadow;
+}
+
+@mixin ame-striped-table {
+	tbody tr:nth-child(2n+1) {
+		background-color: #F9F9F9;
+	}
+}
+
+#rex-loading-message {
+	margin-top: 10px;
+}
+
+#rex-main-ui {
+	display: flex;
+	flex-direction: row;
+	margin-top: 10px;
+	width: 100%;
+}
+
+#rex-content-container,
+#rex-action-sidebar {
+	@include ame-postbox;
+}
+
+#rex-content-container {
+	display: flex;
+	flex-grow: 80;
+	padding: 0;
+	overflow-x: hidden;
+}
+
+#rex-action-sidebar {
+	box-sizing: border-box;
+	width: 170px;
+	flex-grow: 0;
+	flex-shrink: 0;
+	align-self: flex-start;
+
+	margin-left: 15px;
+	padding: $boxPadding;
+
+	.rex-action-separator {
+		height: 10px;
+	}
+}
+
+#rex-category-sidebar {
+	width: 240px;
+	flex-grow: 0;
+	flex-shrink: 0;
+	position: relative;
+
+	border-right: $boxBorder;
+	padding: $boxTopPadding 0;
+
+	background: #f8f8f8;
+
+	& > ul {
+		margin-top: 0;
+	}
+
+	.rex-nav-item {
+		cursor: pointer;
+		margin: 0;
+		padding: 3px $boxLeftPadding 3px $capViewContainerPaddingLeft;
+	}
+
+	.rex-nav-item:hover {
+		background-color: #E5F3FF;
+	}
+
+	.rex-selected-nav-item {
+		background-color: #CCE8FF;
+		box-shadow: 0px -1px 0px 0px #99D1FF, 0px 1px 0px 0px #99D1FF;
+
+		//Don't change the color when hovering over a selected item.
+		&:hover {
+			background-color: #CCE8FF;
+		}
+	}
+
+	$navItemLevelPadding: 13px;
+	@for $level from 2 through 5 {
+		.rex-nav-level-#{$level} {
+			padding-left: ($level - 2) * $navItemLevelPadding;
+		}
+	}
+
+	.rex-nav-toggle {
+		visibility: hidden;
+		display: inline-block;
+
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		max-height: 100%;
+		width: 20px;
+		//background: #A27D35;
+		text-align: right;
+		vertical-align: middle;
+
+		&:after {
+			font-family: dashicons, sans-serif;
+			content: "\f345";
+		}
+
+		&:hover {
+			color: #3ECEF9;
+		}
+	}
+
+	.rex-nav-is-expanded .rex-nav-toggle {
+		//background: #00aa00;
+		&:after {
+			content: "\f347";
+		}
+	}
+
+	.rex-nav-has-children .rex-nav-toggle {
+		visibility: visible;
+	}
+
+	.rex-dropdown-trigger {
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		padding: ($boxTopPadding + 2) ($boxLeftPadding + 2) 3px $boxLeftPadding;
+	}
+
+	//Test styles for flexboxy appearance.
+	.rex-nav-item {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: baseline;
+
+		height: 21px;
+		padding-top: 4px;
+		padding-bottom: 2px;
+
+		$spaceWidth: 0.3em;
+
+		.rex-nav-toggle {
+			flex-shrink: 0;
+			margin-right: $spaceWidth;
+			align-self: stretch;
+			padding: 1px 0;
+		}
+
+		.rex-capability-count {
+			flex-shrink: 0;
+			margin-left: $spaceWidth;
+			margin-right: $spaceWidth;
+		}
+
+		.rex-nav-item-header {
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+	}
+}
+
+#rex-capability-view-container {
+	flex-grow: 70;
+	padding: $capViewContainerPaddingTop $capViewContainerPaddingLeft;
+	overflow-x: hidden;
+}
+
+#rex-capability-view {
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+$oneCategoryWidth: 250px;
+$categoryMargin: 8px;
+
+.rex-category {
+	box-sizing: border-box;
+	min-width: 160px;
+	width: $oneCategoryWidth;
+
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: auto;
+
+	padding: 0;
+	margin: 0 $categoryMargin*2 $categoryMargin*2 0;
+
+	border: 1px solid $amePostboxBorderColor;
+
+	.rex-category-name {
+		font-weight: 600;
+	}
+
+	.rex-category-subheading {
+		display: none;
+		color: #666;
+		font-size: 12px;
+		font-variant: small-caps;
+	}
+
+	.rex-category-subtitle {
+		color: #888;
+		font-size: 0.95em;
+		font-family: Consolas, Monaco, monospace;
+	}
+
+	.rex-category-contents {
+		box-sizing: border-box;
+
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+
+		padding: 10px;
+	}
+
+	&.rex-has-subcategories {
+		width: 100%;
+		flex-basis: 100%;
+	}
+
+	.rex-category-header {
+		padding: 8px 10px;
+		border-bottom: 1px solid $amePostboxBorderColor;
+	}
+
+	&.rex-top-category {
+		border: none;
+		margin: 0 0 10px 0;
+		padding: 0;
+
+		& > .rex-category-header {
+			color: #23282d;
+			font-size: 1.3em;
+			margin: 1em 0;
+			padding: 0;
+			border-bottom: none;
+		}
+
+		& > .rex-category-contents {
+			padding: 0;
+		}
+	}
+
+	&.rex-sub-category {
+		box-shadow: $amePostboxShadow;
+
+		& > .rex-category-header {
+			background: #fafafa;
+		}
+	}
+}
+
+@function desiredCategoryWidth($columns) {
+	@return $oneCategoryWidth * $columns + ($categoryMargin * 2 * ($columns - 1));
+}
+
+$maxFixedColumns: 3;
+@for $cols from 1 through $maxFixedColumns {
+	.rex-desired-columns-#{$cols} {
+		$desiredWidth: desiredCategoryWidth($cols);
+		width: $desiredWidth;
+		flex-grow: 0;
+		max-width: $desiredWidth * 2;
+	}
+}
+
+.rex-desired-columns-max {
+	flex-basis: 100%;
+	width: 100%;
+}
+
+//Switch fixed-size categories to full width on smaller screens. The breakpoints were
+//determined empirically and might need to change if other parts of the UI change.
+@media screen and (max-width: 1432px) {
+	$availableWidth: 780;
+	@for $cols from 2 through $maxFixedColumns {
+		$desiredWidth: desiredCategoryWidth($cols);
+		@if $desiredWidth >= $availableWidth {
+			.rex-desired-columns-#{$cols} {
+				flex-basis: 100%;
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1168px) {
+	$availableWidth: 516;
+	@for $cols from 2 through $maxFixedColumns {
+		$desiredWidth: desiredCategoryWidth($cols);
+		@if $desiredWidth >= $availableWidth {
+			.rex-desired-columns-#{$cols} {
+				flex-basis: 100%;
+				width: 100%;
+			}
+		}
+	}
+}
+
+//region Full-width categories
+//A "full-width" category spans the entire width of the container and displays permissions in columns.
+.rex-full-width-categories {
+	.rex-category {
+		width: 100%;
+		max-width: unset;
+	}
+
+	.rex-desired-columns-1 > .rex-category-contents > .rex-permission-list {
+		column-count: 1;
+		max-width: 300px;
+	}
+}
+
+/*
+ * Ensure that each category contains no more than the desired number of columns.
+ * This is done by adding an invisible space filler element to the end of the permission list.
+ *
+ * Warning: This hack is not perfect. It can allow n+1 columns sometimes.
+ */
+$minPermissionsPerColumn: 3; //Note: This must match the minItemsPerColumn variable in role-editor.ts.
+
+@mixin addColumnFiller($expectedColumns) {
+	.rex-full-width-categories {
+		@for $cols from 2 through 5 {
+			@if $cols < $expectedColumns {
+				.rex-desired-columns-#{$cols} > .rex-category-contents > .rex-permission-list::after {
+					content: 'filler';
+					display: block;
+					background: yellowgreen;
+					font-size: 13px; //Same as permission font size. Might be unnecessary.
+
+					height: ($expectedColumns - $cols) * $minPermissionsPerColumn * $onePermissionHeight;
+					visibility: hidden;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1292px) and (max-width: 1501px) {
+	@include addColumnFiller(3);
+}
+
+@media screen and (min-width: 1502px) and (max-width: 1711px) {
+	@include addColumnFiller(4);
+}
+
+@media screen and (min-width: 1712px) {
+	@include addColumnFiller(5);
+}
+
+//endregion
+
+.rex-show-category-subheadings .rex-category .rex-category-subheading {
+	display: block;
+	width: 100%;
+
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.rex-capability-count {
+	//In the future, we could show the number of caps in a bubble and style it depending
+	//on how many capabilities are enabled (none/some/all).
+	//background-color: #eee;
+	//border: 1px solid #ddd;
+	//color: #666;
+
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+
+	font-size: 12px;
+	//padding: 0 7px;
+
+	&.rex-all-capabilities-enabled {
+		//font-weight: bold;
+		//color: #494;
+		//border-color: green;
+		//background-color: #ddffcc;
+	}
+
+	&:before {
+		content: "(";
+	}
+
+	&:after {
+		content: ")";
+	}
+}
+
+.rex-enabled-capability-count + .rex-total-capability-count {
+	&:before {
+		content: "/";
+	}
+}
+
+.rex-permission-list {
+	box-sizing: border-box;
+	width: 100%;
+
+	columns: 200px;
+	column-gap: 10px;
+
+	.rex-permission {
+		//margin-bottom: 6px;
+		//background: #fafafa; //For development. The color helps to visually estimate the size of the element.
+	}
+}
+
+.rex-permission {
+	box-sizing: border-box;
+
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	font-size: 13px;
+	height: $onePermissionHeight;
+	vertical-align: baseline;
+
+	break-inside: avoid-column;
+
+	display: flex;
+
+	label, .rex-permission-tip-trigger {
+		vertical-align: baseline;
+		padding-top: 3px;
+		padding-bottom: 3px;
+	}
+
+	label {
+		flex-grow: 1;
+		flex-shrink: 1;
+		flex-basis: 50px;
+
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	.rex-permission-tip-trigger {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: 20px;
+	}
+}
+
+.rex-is-redundant {
+	color: #888;
+}
+
+.rex-is-explicitly-denied input[type=checkbox] {
+	border-color: red;
+}
+
+@mixin capCheckboxEffect($color) {
+	background-color: $color;
+}
+
+.rex-is-personal-override {
+	&.rex-is-explicitly-denied input[type=checkbox] {
+		@include capCheckboxEffect(#ffe5e5);
+	}
+
+	input[type=checkbox]:checked {
+		@include capCheckboxEffect(#d9ffd9);
+		border-color: green;
+	}
+}
+
+.rex-is-inherited input[type=checkbox] {
+
+}
+
+//region Permission tooltips
+.rex-permission-tip-trigger {
+	//We could hide the trigger by default, but I'm not sure if that's the best option.
+	visibility: hidden;
+
+	display: inline-block;
+	min-width: 20px;
+	height: 100%;
+	margin: 0;
+	padding-left: 2px;
+
+	cursor: pointer;
+	color: #777; //Unsure. Even this softer color still draws more attention than a tooltip should.
+
+	&:hover {
+		color: #0096dd;
+	}
+}
+
+.rex-permission:hover {
+	background-color: #fafafa;
+
+	.rex-permission-tip-trigger {
+		visibility: visible;
+	}
+}
+
+.rex-tooltip {
+	max-width: 700px;
+
+	.rex-tooltip-section-container {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+	}
+
+	.rex-tooltip-section {
+		max-width: 400px;
+	}
+}
+
+#rex-permission-tip {
+	overflow-y: auto;
+	max-height: 600px;
+
+	h4 {
+		margin-bottom: 0.4em;
+	}
+
+	.rex-tip-granted-permissions {
+		list-style: disc inside;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.rex-documentation-link {
+		display: inline-block;
+		max-width: 100%;
+		overflow-wrap: break-word;
+	}
+}
+
+.rex-capability-inheritance-breakdown {
+	@include ame-striped-table;
+
+	.rex-is-decisive-actor {
+		td:first-child:after {
+			content: "\1f844"; //Wide left arrow.
+			display: inline-block;
+			font-weight: bold;
+			margin-left: 0.5em;
+		}
+	}
+}
+
+//endregion
+
+#rex-view-toolbar {
+	background: #fcfcfc; //Consider #f5f5f5 and #fcfcfc as alternatives.
+	border-bottom: 1px solid #ddd;
+
+	padding: 0 $boxLeftPadding $boxTopPadding $boxLeftPadding;
+	margin: (-$capViewContainerPaddingTop) (-$capViewContainerPaddingLeft) (0) (-$capViewContainerPaddingLeft);
+
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+
+	& > * {
+		margin-top: $boxTopPadding;
+	}
+
+	.button {
+		vertical-align: middle;
+	}
+
+	> label {
+		margin-right: 10px;
+	}
+
+	.rex-dropdown-trigger .dashicons {
+		line-height: 1.3; //This isn't quite right, but it will do for now.
+	}
+}
+
+#rex-quick-search-query {
+	min-width: 250px;
+	max-width: 100%;
+	margin-right: 10px;
+}
+
+#rex-misc-view-options-button {
+	margin-left: auto;
+	margin-right: 10px;
+}
+
+#rex-category-view-selector {
+
+}
+
+
+.rex-search-highlight {
+	background-color: #ffff00;
+}
+
+//region CPT & Taxonomy tables
+.rex-permission-table {
+	th input[type="checkbox"] {
+		vertical-align: middle;
+		margin: -4px 4px -1px 0;
+	}
+
+	@include ame-striped-table;
+
+	td ul {
+		margin: 0;
+	}
+
+	.rex-base-cap-notice {
+		color: #888;
+	}
+}
+
+/* Switch to fixed layout in narrow viewports to prevent overflow. */
+@mixin fixedTableLayout($nameColumnWidth: 25%) {
+	table-layout: fixed;
+	max-width: 100%;
+
+	.rex-category-name-column {
+		width: $nameColumnWidth;
+	}
+}
+
+@media screen and (max-width: 1540px) {
+	.rex-permission-table {
+		@include fixedTableLayout(20%);
+	}
+
+	.rex-readable-names-enabled .rex-permission-table {
+		@include fixedTableLayout(25%);
+	}
+}
+
+/* The taxonomy table needs a wider screen because it has more columns. */
+@media screen and (max-width: 1650px) {
+	#rex-taxonomy-summary-category .rex-permission-table {
+		@include fixedTableLayout(25%);
+	}
+}
+
+/*
+When in "human readable" mode, the taxonomy table doesn't show capability names,
+so it won't overflow its container unless the viewport is very small.
+*/
+.rex-readable-names-enabled #rex-taxonomy-summary-category .rex-permission-table {
+	table-layout: auto;
+	max-width: 600px;
+
+	.rex-capability-name, .rex-permission-tip-trigger {
+		display: none;
+	}
+
+	.rex-permission, th[scope="col"] {
+		text-align: center;
+	}
+
+	.rex-category-name-column {
+		width: unset;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.rex-readable-names-enabled #rex-taxonomy-summary-category .rex-permission-table {
+		@include fixedTableLayout(40%);
+	}
+}
+
+//endregion
+
+#rex-action-sidebar {
+	.rex-action-button {
+		display: block;
+		margin-bottom: 4px;
+		width: 100%;
+	}
+}
+
+#rex-permission-list-view {
+	column-width: 240px;
+	column-gap: 16px;
+	padding-top: $boxLeftPadding;
+}
+
+#rex-category-view-spacer {
+	width: 100%;
+	height: $capViewContainerPaddingTop;
+}
+
+.rex-dropdown-trigger {
+	display: inline-block;
+	box-sizing: border-box;
+	cursor: pointer;
+
+	padding: 2px;
+	color: #aaa;
+	text-decoration: none;
+
+	&:hover, &:focus {
+		color: #777;
+		text-decoration: none;
+	}
+}
+
+.rex-dropdown {
+	position: absolute;
+
+	border: $boxBorder;
+	background: #fff;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+
+	padding: $boxPadding;
+	z-index: 100;
+
+	.rex-dropdown-item {
+		display: block;
+		margin-bottom: 10px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.rex-dropdown-sub-item {
+		margin-left: 1em;
+	}
+
+	.rex-dropdown-item > .rex-dropdown-item {
+		margin-bottom: 6px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.ui-dialog {
+	.ui-dialog-buttonpane {
+		background: #fcfcfc;
+		border-top: 1px solid #dfdfdf;
+		padding: 8px;
+
+		&:after {
+			clear: both;
+			content: "";
+			min-height: 0;
+			display: table;
+			border-collapse: collapse;
+		}
+	}
+
+	//In WordPress the "Cancel" option is usually on the left side,
+	//but AME historically puts it on the right.
+	.ui-dialog-buttonset {
+		width: 100%;
+
+		.ui-button.rex-dialog-cancel-button, .ui-button.ame-dialog-cancel-button {
+			float: right;
+			margin-right: 0 !important;
+		}
+
+		.ui-button {
+			float: left;
+		}
+	}
+}
+
+.rex-dialog {
+	input[type=text], select {
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+	}
+}
+
+.rex-dialog-section {
+	margin-top: 0;
+}
+
+#rex-delete-capability-dialog {
+	.rex-deletable-capability-container {
+		max-height: 400px;
+		overflow-y: auto;
+	}
+
+	.rex-deletable-capability-list {
+		margin-top: 0;
+		list-style-type: none;
+	}
+}
+
+#rex-add-capability-dialog {
+	#rex-new-capability-name {
+		box-sizing: border-box;
+		width: 100%;
+	}
+
+	#rex-add-capability-validation-message {
+		min-height: 40px;
+		margin-bottom: 6px;
+	}
+}
+
+#rex-delete-role-dialog {
+	.rex-deletable-role-list-container {
+		max-height: 380px;
+
+		overflow-y: auto;
+		margin-top: 10px;
+	}
+
+	.rex-deletable-role-list {
+		table-layout: fixed;
+		@include ame-striped-table;
+	}
+
+	.rex-role-name-column > label {
+		display: inline-block;
+		width: 100%;
+	}
+
+	.rex-role-usage-column {
+		width: 6em;
+		max-width: 30%;
+		color: #888;
+		text-align: right;
+	}
+}
+
+//region Editable roles dialog
+$editableRolesSectionBorder: #ccd0d4;
+#rex-editable-roles-container {
+	display: flex;
+
+	.ame-role-table {
+		min-width: 190px;
+		border: 1px solid $editableRolesSectionBorder;
+		border-right-style: none;
+
+		td {
+			cursor: pointer;
+		}
+	}
+
+	$selectedRowTipColor: white;
+
+	.ame-selected-role-table-row {
+		background: #CCE8FF;
+
+		.ame-selected-role-tip {
+			visibility: visible;
+		}
+
+		.ame-column-role-name {
+			font-weight: bold;
+		}
+	}
+
+	.ame-column-selected-role-tip {
+		position: relative;
+		padding: 0;
+		min-width: 30px;
+	}
+
+	.ame-selected-role-tip {
+		visibility: hidden;
+
+		height: 100%;
+		width: 100%;
+		box-sizing: border-box;
+
+		position: absolute;
+		top: 0;
+		right: -2px;
+
+		border-right: 1px solid $selectedRowTipColor;
+
+		.ame-rex-svg-triangle {
+			box-sizing: border-box;
+			position: absolute;
+			right: 0;
+			height: 100%;
+
+			polygon {
+				fill: $selectedRowTipColor;
+				stroke: $selectedRowTipColor;
+				stroke-width: 1px;
+			}
+		}
+	}
+}
+
+#rex-editable-roles-options {
+	padding: 4px $boxTopPadding $boxTopPadding $boxTopPadding;
+	border: 1px solid $editableRolesSectionBorder;
+
+	fieldset > p:first-of-type {
+		margin-top: 0;
+	}
+}
+
+#rex-editable-role-list {
+	margin-left: 1em;
+	margin-top: 0;
+}
+
+//endregion
+
+//region User role list
+#rex-user-role-list {
+	border-right: $boxBorder;
+	padding: $boxPadding;
+
+	background: #f8f8f8;
+
+	p:first-child {
+		margin-top: 0;
+	}
+}
+
+#rex-primary-user-role {
+	display: block;
+}
+
+.rex-user-role-option-list {
+	margin-top: 0;
+}
+//endregion

@@ -1,0 +1,121 @@
+/**
+ * Miscellaneous menu styles that can be used on all admin pages.
+ */
+
+/*
+ * Submenu separators.
+ */
+hr.ws-submenu-separator {
+	display: block;
+	margin: 2px 0;
+	padding: 0;
+    height: 0;
+
+    border-width: 1px 0 0 0;
+	border-style: solid;
+	border-color: #ccc;
+}
+
+/* Custom separator style suggested by a customer (Slavo) */
+/*
+#adminmenu .ws-submenu-separator {
+	border-bottom: none;
+	border-top: 1px dotted rgba(0,0,0,.3);
+	width: 90%;
+}
+*/
+
+/* S2Member separator style */
+/*
+#adminmenu .ws-submenu-separator {
+	display: block;
+	border: 0;
+	margin: 1px 0 1px -5px;
+	padding: 0;
+	height: 1px;
+	line-height: 1px;
+	background: #CCCCCC;
+}
+*/
+
+/* Override .wp-menu-separator styles as they don't work too well in submenus. */
+#adminmenu .wp-submenu li.ws-submenu-separator-wrap {
+	margin: 0 0 0 0;
+	padding: 0;
+	height: inherit;
+}
+
+/* No pointer/hand on separators. */
+#adminmenu li.ws-submenu-separator-wrap a {
+	cursor: default;
+}
+
+/* No colored bar/marker when hovering over a separator. */
+#adminmenu li.ws-submenu-separator-wrap a:hover,
+#adminmenu li.ws-submenu-separator-wrap a:focus {
+    box-shadow: none;
+}
+
+/* No extra margin in submenus with icons. The selector uses the URL prefix because we can't control the link class.
+ * li.ws-submenu-separator-wrap would also work, but it's added via JS so there's an undesirable delay (FOUC).
+ */
+#adminmenu .ame-has-submenu-icons ul.wp-submenu li a[href^="#submenu-separator-"] {
+    margin-left: 0;
+}
+
+/*
+ * Override third-party menu icons with image icons selected by the user.
+ *
+ * Some plugins use CSS to put their menu icon in a ::before pseudo-element, like WordPress does with Dashicons.
+ * When the user assigns a custom icon URL to the menu item (e.g. "https://example.com/icon.png"), the ::before
+ * element will still be there, and it will push the custom icon out of place. To prevent that, let's forcibly
+ * hide the ::before element (note: don't do this when the user has selected a custom Dashicon/other icon fonts!).
+ */
+#adminmenu a.ame-has-custom-image-url > .wp-menu-image::before {
+    display: none !important;
+}
+
+/*
+ * Submenu icons.
+ */
+.ame-submenu-icon {
+    display: block;
+    padding-right: 8px;
+    min-width: 20px;
+
+    /*
+    Dashicons are 20x20 by default and some of them look pretty bad at smaller sizes. Submenu item titles are 16px high
+    by default. So lets hack some negative margins to make a 20px icon fit in 16px. With the current admin UI styles
+    it looks okay - submenu items are ~28px high when including padding/margins, so there's no visual overlap.
+     */
+    height: 20px;
+    margin-top: -1px;
+    margin-bottom: -3px;
+
+    vertical-align: top;
+
+    margin-left: -28px;
+    float: left;
+
+    /* Center image-based icons. Doesn't matter for dashicons. */
+    text-align: center;
+}
+
+#adminmenu .ame-has-submenu-icons ul.wp-submenu li a {
+    /* Push all submenus to the right to ensure that items with and without icons line up nicely. */
+    padding-left: 36px;
+}
+
+#adminmenu .ame-submenu-icon img {
+    padding-top: 2px;
+	max-width: 32px;
+
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+#adminmenu .wp-submenu li:hover .ame-submenu-icon img,
+#adminmenu .wp-submenu li.current .ame-submenu-icon img {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}

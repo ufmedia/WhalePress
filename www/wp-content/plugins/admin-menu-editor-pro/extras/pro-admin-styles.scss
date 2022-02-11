@@ -1,0 +1,81 @@
+@use "sass:color";
+@use "sass:math";
+
+/*
+ * Third level menus.
+ */
+
+#adminmenu {
+	.ame-deep-submenu {
+		position: absolute;
+	}
+
+	li.menu-top {
+		&.opensub, &.wp-has-current-submenu {
+			.ame-deep-submenu {
+				top: -1000em;
+				position: absolute;
+			}
+		}
+	}
+
+	li.ame-has-deep-submenu {
+		$triangleSize: 23px;
+		$pointerSize: 18px;
+
+		&.ame-has-highlighted-item, &.ame-has-current-deep-submenu {
+			> a:first-of-type {
+				background: #0073aa; //Default active background color in WP 5.6.x.
+				color: #fff;
+
+				&::after {
+					content: "\f140";
+					margin-top: -$pointerSize/2;
+				}
+			}
+
+			> .ame-deep-submenu {
+				top: 0;
+				position: relative;
+
+				padding-top: 0;
+				padding-bottom: 0;
+
+				& > li > a {
+					padding-left: 24px;
+				}
+			}
+		}
+
+		> a {
+			position: relative;
+		}
+
+		> a::after {
+			position: absolute;
+			right: 6px;
+			top: 50%;
+			margin-top: -$pointerSize/2;
+
+			height: $pointerSize;
+			width: math.max($pointerSize, 20px);
+
+			font-family: dashicons, serif;
+			content: "\f139";
+			font-size: $triangleSize;
+			line-height: $pointerSize;
+			text-align: right;
+		}
+	}
+}
+
+#adminmenu .wp-submenu li.opensub > ul.ame-deep-submenu {
+	top: -1px;
+}
+
+.folded #adminmenu li.opensub > ul.ame-deep-submenu,
+.folded #adminmenu .wp-has-current-submenu.opensub > ul.ame-deep-submenu,
+.no-js.folded #adminmenu .ame-has-deep-submenu:hover > ul.ame-deep-submenu {
+	top: 0;
+	left: 160px;
+}

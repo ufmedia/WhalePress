@@ -1,0 +1,102 @@
+#licensing-information {
+    font-size: 14px;
+	height: 96%;
+    background-color: white;
+}
+
+label {
+    vertical-align: baseline;
+    display: inline-block;
+    min-width: 6em;
+}
+
+div.error, div.updated {
+    margin-bottom: 5px;
+}
+
+#licensing-information .notice {
+	margin: 5px 15px;
+}
+
+#wslm-section-holder {
+    padding: 10px;
+}
+
+#plugin-information-header {
+    position: relative;
+    height: 2.5em;
+
+    background-color: #f9f9f9;
+
+    border-bottom-color: #dfdfdf;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+#licensing-information ul#sidemenu {
+    font-weight: normal;
+    margin: 0 5px;
+    position: absolute;
+	left: 0;
+	bottom: -1px;
+
+	padding-left: 10px;
+	list-style: outside none none;
+}
+
+/* Tabs */
+#sidemenu li {
+	font-size: 13px; /* Originally 12px. */
+
+	display: inline;
+	line-height: 200%;
+
+	text-align: center;
+	white-space: nowrap;
+	margin: 0;
+	padding: 0;
+}
+
+#sidemenu a {
+	text-decoration: none;
+
+	padding: 0 7px;
+	display: block;
+	float: left;
+	line-height: 28px;
+
+	border-top: 1px solid #F9F9F9;
+	border-bottom: 1px solid #DFDFDF;
+	background-color: #F9F9F9;
+
+	transition: none 0s ease 0s;
+}
+
+#sidemenu a:focus {
+	box-shadow: none;
+}
+
+/* Current tab */
+#sidemenu a.current {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border: 1px solid #DFDFDF;
+
+	/* Due to adding borders, we need to decrease padding to keep the total width the same. */
+	padding-left: 6px;
+	padding-right: 6px;
+
+	font-weight: normal;
+	color: #000;
+
+    background-color: white;
+    border-bottom-color: white;
+}
+
+#sidemenu a:focus, #sidemenu a:active {
+    outline: none;
+}
+
+.license-status {
+    font-weight: bold;
+}

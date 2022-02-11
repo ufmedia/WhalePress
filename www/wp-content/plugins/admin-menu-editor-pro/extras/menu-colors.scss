@@ -1,0 +1,154 @@
+/* This is just a template for testing. */
+
+$base-color: #1e73be;
+$highlight-color: #81d742;
+$text-color: #dd9933;
+$icon-color: #dd9933;
+
+// assign default value to all undefined variables
+// core variables
+
+$base-color: #222 !default;
+$text-color: #fff !default;
+$icon-color: hsl( hue( $base-color ), 7%, 95% ) !default;
+$highlight-color: #0074a2 !default;
+$notification-color: #d54e21 !default;
+
+// admin menu & admin-bar
+
+$menu-text: $text-color !default;
+$menu-icon: $icon-color !default;
+$menu-background: $base-color !default;
+
+$menu-highlight-text: $text-color !default;
+$menu-highlight-icon: $text-color !default;
+$menu-highlight-background: $highlight-color !default;
+
+$menu-current-text: $menu-highlight-text !default;
+$menu-current-icon: $menu-highlight-icon !default;
+$menu-current-background: $menu-highlight-background !default;
+
+$menu-submenu-text: mix( $base-color, $text-color, 30% ) !default;
+$menu-submenu-background: darken( $base-color, 7% ) !default;
+$menu-submenu-background-alt: desaturate( lighten( $menu-background, 7% ), 7% ) !default;
+
+$menu-submenu-focus-text: $highlight-color !default;
+$menu-submenu-current-text: $text-color !default;
+
+$menu-bubble-text: $text-color !default;
+$menu-bubble-background: $notification-color !default;
+$menu-bubble-current-text: $text-color !default;
+$menu-bubble-current-background: $menu-submenu-background !default;
+
+$menu-id: "";//  #test-hook-name;
+
+/* Admin Menu */
+#adminmenu > li#{$menu-id} {
+	background: $menu-background;
+
+	a {
+		color: $menu-text;
+	}
+
+	div.wp-menu-image:before {
+		color: $menu-icon;
+	}
+
+	a:hover,
+	&.menu-top:hover,
+	&.opensub > a.menu-top,
+	& > a.menu-top:focus {
+		color: $menu-highlight-text;
+	}
+
+	&.menu-top:hover,
+	&.opensub > a.menu-top,
+	& > a.menu-top:focus {
+		background-color: $menu-highlight-background;
+	}
+
+	&.menu-top:hover div.wp-menu-image:before,
+	&.menu-top > a:focus div.wp-menu-image:before,
+	&.opensub > a.menu-top div.wp-menu-image:before {
+		color: $menu-highlight-icon;
+	}
+
+	/* Admin Menu: submenu */
+
+	.wp-submenu,
+	&.wp-has-current-submenu .wp-submenu,
+	&.wp-has-current-submenu.opensub .wp-submenu,
+	.folded &.wp-has-current-submenu .wp-submenu,
+	a.wp-has-current-submenu:focus + .wp-submenu {
+		background: $menu-submenu-background;
+	}
+
+	&.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
+		border-right-color: $menu-submenu-background;
+	}
+
+	.wp-submenu .wp-submenu-head {
+		color: $menu-submenu-text;
+	}
+
+	.wp-submenu a,
+	&.wp-has-current-submenu .wp-submenu a,
+	a.wp-has-current-submenu:focus + .wp-submenu a,
+	.folded &.wp-has-current-submenu .wp-submenu a,
+	&.wp-has-current-submenu.opensub .wp-submenu a {
+		color: $menu-submenu-text;
+
+		&:focus, &:hover {
+			color: $menu-submenu-focus-text;
+		}
+	}
+
+
+	/* Admin Menu: current */
+
+	.wp-submenu li.current a,
+	a.wp-has-current-submenu:focus + .wp-submenu li.current a,
+	&.wp-has-current-submenu.opensub .wp-submenu li.current a {
+		color: $menu-submenu-current-text;
+
+		&:hover, &:focus {
+			color: $menu-submenu-focus-text;
+		}
+	}
+
+	&.current a.menu-top,
+	&.wp-has-current-submenu a.wp-has-current-submenu,
+	&.wp-has-current-submenu .wp-submenu .wp-submenu-head,
+	.folded &.current.menu-top {
+		color: $menu-current-text;
+		background: $menu-current-background;
+	}
+
+	&.wp-has-current-submenu div.wp-menu-image:before {
+		color: $menu-current-icon;
+	}
+
+
+	/* Admin Menu: bubble */
+
+	.awaiting-mod,
+	.update-plugins {
+		color: $menu-bubble-text;
+		background: $menu-bubble-background;
+	}
+
+	.current a .awaiting-mod,
+	a.wp-has-current-submenu .update-plugins,
+	&:hover a .awaiting-mod,
+	&.menu-top:hover > a .update-plugins {
+		color: $menu-bubble-current-text;
+		background: $menu-bubble-current-background;
+	}
+
+}
+
+@if $menu-id == "" {
+	#adminmenuback, #adminmenuwrap, #adminmenu {
+		background-color: $menu-background;
+	}
+}

@@ -1,0 +1,115 @@
+@import "../../../css/indeterminate-checkbox";
+@import "../../../css/boxes";
+
+$desiredChildTweakOffset: 2em;
+$childrenOffset: 1.7em;
+
+.ame-twm-section {
+	@include ame-emulated-postbox();
+
+	.ws-ame-postbox-content {
+		padding-top: 8px;
+	}
+
+	max-width: 630px;
+}
+
+.ame-twm-tweak-children {
+	margin-left: $childrenOffset;
+
+	& > .ame-twm-tweak {
+		margin-left: $desiredChildTweakOffset - $childrenOffset;
+	}
+}
+
+.ame-twm-named-node input[type=checkbox] {
+	@include ame-indeterminate-checkbox;
+}
+
+.ame-twm-named-node {
+	font-size: 14px;
+	line-height: 1.65;
+}
+
+#ame-tweak-manager #ws_actor_selector_container {
+	margin-bottom: 8px;
+}
+
+#ame-twm-new-css-tweak-code {
+	width: 99%;
+}
+
+#ame-twm-add-admin-css-dialog {
+	.CodeMirror-scroll {
+		//min-height: 160px;
+	}
+}
+
+.ame-twm-tweak-actions {
+	vertical-align: middle;
+	margin-left: 1em;
+	display: none;
+}
+
+.ame-twm-tweak:hover .ame-twm-tweak-actions {
+	display: inline-block;
+}
+
+.ame-twm-action {
+	text-decoration: none;
+	color: #595959;
+	cursor: pointer;
+	padding: 0 0.5em;
+
+	& > .dashicons {
+		vertical-align: text-bottom;
+	}
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&.ame-twm-delete-tweak:hover {
+		color: #a00;
+	}
+}
+
+.ame-twm-user-input label .CodeMirror {
+	cursor: auto;
+}
+
+.ame-twm-user-input, .ame-twm-dialog {
+	.CodeMirror {
+		box-sizing: border-box;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+
+		margin-bottom: 4px;
+
+		//Automatically resize CodeMirror text fields to fit the contents.
+		height: auto;
+	}
+
+	//This is also part of the resizing code.
+	.CodeMirror-scroll {
+		overflow-y: hidden;
+		overflow-x: auto;
+		min-height: 100px;
+		max-height: 500px;
+	}
+
+	//Emulate WP textarea focus styles.
+	.CodeMirror:focus-within {
+		border-color: #007cba;
+		box-shadow: 0 0 0 1px #007cba;
+	}
+}
+
+.ame-twm-color-label {
+	margin-right: 0.5em;
+}
+
+#ame-tweak-environment-dependent-colors .ame-twm-color-label {
+	display: inline-block;
+	min-width: 7em;
+}

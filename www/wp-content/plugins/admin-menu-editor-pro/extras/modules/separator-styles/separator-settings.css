@@ -1,0 +1,70 @@
+#ws-ame-separator-style-settings {
+  background-color: white;
+  padding-top: 0; }
+  #ws-ame-separator-style-settings input[type=number] {
+    width: 6em; }
+  #ws-ame-separator-style-settings .ame-sp-label-text {
+    display: inline-block;
+    min-width: 6em; }
+  #ws-ame-separator-style-settings .ame-sp-flexbox-break {
+    flex-basis: 100%;
+    height: 0; }
+  #ws-ame-separator-style-settings .wp-picker-container {
+    display: inline-block; }
+  #ws-ame-separator-style-settings .ame-small-tab-container {
+    list-style: none;
+    position: relative;
+    padding-left: 10px;
+    padding-top: 8px;
+    border-bottom: 1px solid #ddd;
+    background: #f9f9f9;
+    margin: 0 -8px 0.5em -8px; }
+    #ws-ame-separator-style-settings .ame-small-tab-container .ame-small-tab {
+      display: inline-block;
+      position: relative;
+      bottom: -1px;
+      margin: 0;
+      border: solid 1px transparent; }
+      #ws-ame-separator-style-settings .ame-small-tab-container .ame-small-tab a {
+        display: inline-block;
+        text-decoration: none;
+        padding: 5px 8px 6px 8px; }
+      #ws-ame-separator-style-settings .ame-small-tab-container .ame-small-tab.ame-active-tab {
+        border: 1px solid #ddd;
+        border-bottom-color: white;
+        background: white; }
+        #ws-ame-separator-style-settings .ame-small-tab-container .ame-small-tab.ame-active-tab a {
+          color: #444; }
+  #ws-ame-separator-style-settings .ame-separator-settings-container {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-top: 0.5em; }
+  #ws-ame-separator-style-settings .ws_dialog_subpanel > p {
+    margin-top: 0; }
+
+#ame-separator-margins {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px; }
+  #ame-separator-margins .ame-sp-label-text {
+    min-width: 4em; }
+  #ame-separator-margins label {
+    margin-right: 2.5em; }
+  #ame-separator-margins input {
+    margin-bottom: 0.4em; }
+
+#ame-separator-border-styles .ame-sp-label-text {
+  min-width: 5em; }
+#ame-separator-border-styles .ame-border-sample-container {
+  display: inline-block;
+  vertical-align: top;
+  min-height: 28px; }
+#ame-separator-border-styles .ame-border-sample {
+  display: inline-block;
+  width: 14em;
+  border-top: 0.3em solid #444; }
+
+#ame-separator-width-options input[type=number] {
+  margin-top: 0.4em; }
+
+/*# sourceMappingURL=separator-settings.css.map */

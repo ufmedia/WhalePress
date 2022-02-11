@@ -1,0 +1,8 @@
+//These capabilities are only available to Multisite Super Admins:
+
+manage_network
+manage_sites
+manage_network_users
+manage_network_plugins
+manage_network_themes
+manage_network_options

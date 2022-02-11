@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+        height="24px"
+        viewBox="0 0 24 24"
+        width="24px"
+        fill="#000000"
+        version="1.1"
+        id="svg23"
+        sodipodi:docname="drag-indicator.svg"
+        inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        xmlns="http://www.w3.org/2000/svg"
+>
+  <defs
+     id="defs27" />
+  <sodipodi:namedview
+     id="namedview25"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="true"
+     inkscape:zoom="33.708333"
+     inkscape:cx="7.0160692"
+     inkscape:cy="12"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="symbol1321"
+     inkscape:snap-grids="true"
+     inkscape:snap-page="false"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2690" />
+    <sodipodi:guide
+       position="9,18"
+       orientation="1,0"
+       id="guide7197" />
+    <sodipodi:guide
+       position="9,18"
+       orientation="0,-1"
+       id="guide7199" />
+    <sodipodi:guide
+       position="9,12"
+       orientation="0,-1"
+       id="guide7201" />
+    <sodipodi:guide
+       position="9,6"
+       orientation="0,-1"
+       id="guide7203" />
+    <sodipodi:guide
+       position="15,18"
+       orientation="1,0"
+       id="guide7205" />
+  </sodipodi:namedview>
+  <path
+     d="M0 0h24v24H0V0z"
+     fill="none"
+     id="box_border"
+     inkscape:label="box_border" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Dots"
+     style="display:inline">
+    <use
+       xlink:href="#symbol1321"
+       id="use1346"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%"
+       transform="translate(6)" />
+    <use
+       xlink:href="#symbol1321"
+       id="use2560"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%"
+       transform="translate(6,5.9999999)" />
+    <use
+       xlink:href="#symbol1321"
+       id="use2585"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%"
+       transform="translate(6,12)" />
+    <use
+       xlink:href="#symbol1321"
+       id="use2610"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%"
+       transform="translate(-1.5014649e-8,5.9999999)" />
+    <use
+       xlink:href="#symbol1321"
+       id="use2635"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%"
+       transform="translate(-1.5014649e-8,12)" />
+    <g
+       id="symbol1321"
+       transform="translate(0.41718102,3.7731771)"
+       inkscape:label="BaseDot">
+      <circle
+         style="fill:#737373;fill-opacity:1;stroke:none;stroke-width:7.03132;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:125.448;stroke-opacity:1"
+         id="path269"
+         cy="2.2268229"
+         cx="8.582819"
+         r="1.5" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,168 @@
+#ame-dashboard-widget-editor #ws_actor_selector {
+  margin-top: 6px; }
+
+#ame-dashboard-widgets {
+  width: 600px;
+  padding: 10px 8px 0 8px;
+  margin: 2px 0 0 0;
+  float: left; }
+  #ame-dashboard-widgets:after {
+    display: block;
+    clear: both;
+    content: ".";
+    visibility: hidden;
+    height: 0;
+    font-size: 0; }
+
+#ame-major-widget-actions {
+  padding: 10px 8px;
+  margin: 2px 0 0 10px;
+  width: 150px;
+  float: left; }
+  #ame-major-widget-actions input.button.button-primary {
+    margin-top: 0;
+    margin-bottom: 21px; }
+  #ame-major-widget-actions input.button {
+    width: 100%;
+    margin-top: 4px; }
+  #ame-major-widget-actions #ame-export-widgets {
+    margin-top: 12px; }
+
+#ame-dashboard-widgets,
+#ame-major-widget-actions {
+  box-sizing: border-box;
+  background: white;
+  border: 1px solid #ccd0d4;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04); }
+
+.ame-dashboard-widget {
+  margin: 0 auto 10px;
+  position: relative;
+  box-sizing: border-box; }
+
+.ame-widget-top {
+  position: relative;
+  background: #fafafa;
+  color: #23282D;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4em;
+  border: 1px solid #ccd0d4;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04); }
+  .ame-widget-top h3 {
+    padding: 15px;
+    margin: 0;
+    font-size: 1em;
+    line-height: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+  .ame-widget-top .ame-widget-title-action {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    height: 100%;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #72777c; }
+    .ame-widget-top .ame-widget-title-action:before {
+      display: inline-block;
+      content: '\f140';
+      font: normal 20px/1 dashicons;
+      vertical-align: middle; }
+    .ame-widget-top .ame-widget-title-action:after {
+      display: inline-block;
+      content: "";
+      vertical-align: middle;
+      height: 100%; }
+    .ame-widget-top .ame-widget-title-action:hover {
+      color: #23282d; }
+  body.rtl .ame-widget-top .ame-widget-title-action {
+    left: 0;
+    right: auto; }
+  .ame-widget-top .ame-widget-access-checkbox {
+    margin-right: 5px; }
+  .ame-widget-top .ame-widget-flags {
+    position: absolute;
+    right: 40px;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    text-align: right; }
+    .ame-widget-top .ame-widget-flags::after {
+      display: inline-block;
+      content: "";
+      vertical-align: middle;
+      height: 100%; }
+  .ame-widget-top .ame-widget-flag {
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    vertical-align: middle; }
+    .ame-widget-top .ame-widget-flag::after {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      font: normal 20px/1 dashicons;
+      vertical-align: baseline;
+      color: #666; }
+
+.ame-missing-widget-flag::after {
+  content: '\f225'; }
+
+.ame-widget-properties {
+  display: none;
+  background: white;
+  padding: 15px;
+  border: 1px solid #ccd0d4;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  border-top: none; }
+  .ame-widget-properties ame-widget-property {
+    display: block;
+    padding: 0;
+    margin-bottom: 1em; }
+  .ame-widget-properties .ame-widget-property-name {
+    display: inline-block; }
+  .ame-widget-properties input[type="text"].ame-widget-property-value,
+  .ame-widget-properties input[type="url"].ame-widget-property-value,
+  .ame-widget-properties select.ame-widget-property-value,
+  .ame-widget-properties textarea.ame-widget-property-value {
+    width: 100%; }
+  .ame-widget-properties a.ame-delete-widget:hover {
+    color: #f00;
+    text-decoration: none;
+    border: none; }
+
+.ame-open-dashboard-widget .ame-widget-properties {
+  display: block; }
+.ame-open-dashboard-widget .ame-widget-title-action:before {
+  content: '\f142'; }
+.ame-open-dashboard-widget .ame-widget-top {
+  box-shadow: none; }
+
+.ame-widget-access-checkbox:indeterminate:before,
+input[type="checkbox"].ame-widget-access-checkbox:indeterminate:before {
+  content: '\25a0';
+  color: #1e8cbe;
+  margin: -3px 0 0 -1px;
+  font: 400 14px/1 dashicons;
+  float: left;
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  -webkit-font-smoothing: antialiased; }
+
+/*
+ * Import dialog
+ */
+#ame-import-panel {
+  min-height: 70px; }
+
+#ame-import-file-selector {
+  max-width: 100%; }
+
+/*# sourceMappingURL=dashboard-widget-editor.css.map */

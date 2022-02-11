@@ -1,0 +1,26 @@
+// These are known meta capabilities that each reliably map to a single capability if they are enabled.
+// Meta capabilities that have context-dependent mappings are not included in this list.
+
+promote_user
+add_users
+edit_css
+upload_themes
+upload_plugins
+update_languages
+deactivate_plugins
+customize
+delete_site
+
+edit_categories
+delete_categories
+assign_categories
+
+manage_post_tags
+edit_post_tags
+delete_post_tags
+assign_post_tags
+
+update_php
+export_others_personal_data
+erase_others_personal_data
+manage_privacy_options

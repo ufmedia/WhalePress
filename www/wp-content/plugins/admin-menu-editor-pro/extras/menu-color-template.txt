@@ -1,0 +1,58 @@
+li#menu-id-placeholder {
+  background: $base-color;
+}
+  li#menu-id-placeholder a {
+    color: $text-color; }
+  li#menu-id-placeholder div.wp-menu-image:before {
+    color: $icon-color; }
+
+  li#menu-id-placeholder a:hover, li#menu-id-placeholder.menu-top:hover, li#menu-id-placeholder.opensub > a.menu-top, li#menu-id-placeholder > a.menu-top:focus {
+    color: $menu-highlight-text;
+    background-color: $menu-highlight-background;
+  }
+
+  li#menu-id-placeholder.menu-top:hover div.wp-menu-image:before, #adminmenu > li#menu-id-placeholder > a:focus div.wp-menu-image:before, li#menu-id-placeholder.opensub > a.menu-top div.wp-menu-image:before {
+    color: $menu-highlight-icon; }
+
+  li#menu-id-placeholder .wp-submenu, li#menu-id-placeholder.wp-has-current-submenu .wp-submenu, li#menu-id-placeholder.wp-has-current-submenu.opensub .wp-submenu, .folded li#menu-id-placeholder.wp-has-current-submenu .wp-submenu
+  a.wp-has-current-submenu:focus + .wp-submenu {
+    background: $menu-submenu-background; }
+
+  #adminmenu li#menu-id-placeholder.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
+    border-right-color: $menu-submenu-background; }
+
+  li#menu-id-placeholder .wp-submenu .wp-submenu-head {
+    color: $menu-submenu-text; }
+  li#menu-id-placeholder .wp-submenu a, li#menu-id-placeholder.wp-has-current-submenu .wp-submenu a,
+  li#menu-id-placeholder a.wp-has-current-submenu:focus + .wp-submenu a, .folded li#menu-id-placeholder.wp-has-current-submenu .wp-submenu a
+  li#menu-id-placeholder.wp-has-current-submenu.opensub .wp-submenu a {
+    color: $menu-submenu-text; }
+    li#menu-id-placeholder .wp-submenu a:focus, li#menu-id-placeholder .wp-submenu a:hover, li#menu-id-placeholder.wp-has-current-submenu .wp-submenu a:focus, li#menu-id-placeholder.wp-has-current-submenu .wp-submenu a:hover,
+    li#menu-id-placeholder a.wp-has-current-submenu:focus + .wp-submenu a:focus,
+    li#menu-id-placeholder a.wp-has-current-submenu:focus + .wp-submenu a:hover, .folded li#menu-id-placeholder.wp-has-current-submenu .wp-submenu a
+    li#menu-id-placeholder.wp-has-current-submenu.opensub .wp-submenu a:focus, .folded li#menu-id-placeholder.wp-has-current-submenu .wp-submenu a
+    li#menu-id-placeholder.wp-has-current-submenu.opensub .wp-submenu a:hover {
+      color: $menu-submenu-focus-text; }
+
+  li#menu-id-placeholder .wp-submenu li.current a,
+  li#menu-id-placeholder a.wp-has-current-submenu:focus + .wp-submenu li.current a, li#menu-id-placeholder.wp-has-current-submenu.opensub .wp-submenu li.current a {
+    color: $menu-submenu-current-text; }
+    li#menu-id-placeholder .wp-submenu li.current a:hover, li#menu-id-placeholder .wp-submenu li.current a:focus,
+    li#menu-id-placeholder a.wp-has-current-submenu:focus + .wp-submenu li.current a:hover,
+    li#menu-id-placeholder a.wp-has-current-submenu:focus + .wp-submenu li.current a:focus, li#menu-id-placeholder.wp-has-current-submenu.opensub .wp-submenu li.current a:hover, li#menu-id-placeholder.wp-has-current-submenu.opensub .wp-submenu li.current a:focus {
+      color: $menu-submenu-focus-text; }
+
+  li#menu-id-placeholder.current a.menu-top, li#menu-id-placeholder.wp-has-current-submenu a.wp-has-current-submenu, li#menu-id-placeholder.wp-has-current-submenu .wp-submenu .wp-submenu-head, .folded li#menu-id-placeholder.current.menu-top {
+    color: $menu-current-text;
+    background: $menu-current-background; }
+  li#menu-id-placeholder.wp-has-current-submenu div.wp-menu-image:before,
+  li#menu-id-placeholder.current div.wp-menu-image:before {
+    color: $menu-current-icon; }
+  li#menu-id-placeholder .awaiting-mod,
+  li#menu-id-placeholder .update-plugins {
+    color: $menu-bubble-text;
+    background: $menu-bubble-background; }
+  li#menu-id-placeholder .current a .awaiting-mod,
+  li#menu-id-placeholder a.wp-has-current-submenu .update-plugins, li#menu-id-placeholder:hover a .awaiting-mod, li#menu-id-placeholder.menu-top:hover > a .update-plugins {
+    color: $menu-bubble-current-text;
+    background: $menu-bubble-current-background;}

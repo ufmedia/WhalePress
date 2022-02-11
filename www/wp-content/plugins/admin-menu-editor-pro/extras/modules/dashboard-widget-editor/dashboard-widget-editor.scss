@@ -1,0 +1,236 @@
+@import "../../../css/boxes";
+
+$widgetBorderColor: $amePostboxBorderColor;
+
+#ame-dashboard-widget-editor #ws_actor_selector {
+	margin-top: 6px;
+}
+
+#ame-dashboard-widgets {
+	width: 600px;
+	padding: 10px 8px 0 8px;
+	margin: 2px 0 0 0;
+	float: left;
+
+	&:after {
+		display: block;
+		clear: both;
+		content: ".";
+		visibility: hidden;
+		height: 0;
+		font-size: 0;
+	}
+}
+
+#ame-major-widget-actions {
+	padding: 10px 8px;
+	margin: 2px 0 0 10px;
+	width: 150px;
+	float: left;
+
+	input.button.button-primary {
+		margin-top: 0;
+		margin-bottom: 21px;
+	}
+
+	input.button {
+		width: 100%;
+		margin-top: 4px;
+	}
+
+	#ame-export-widgets {
+		margin-top: 12px;
+	}
+}
+
+#ame-dashboard-widgets,
+#ame-major-widget-actions {
+	box-sizing: border-box;
+
+	background: white;
+	border: 1px solid $widgetBorderColor;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.ame-dashboard-widget {
+	margin: 0 auto 10px;
+	position: relative;
+	box-sizing: border-box;
+}
+
+$titleActionWidth: 40px;
+
+.ame-widget-top {
+	position: relative;
+	background: #fafafa;
+	color: #23282D;
+
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.4em;
+
+	border: 1px solid $widgetBorderColor;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+
+	h3 {
+		padding: 15px;
+		margin: 0;
+
+		font-size: 1em;
+		line-height: 1;
+
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;;
+	}
+
+	.ame-widget-title-action {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+
+		width: $titleActionWidth;
+		height: 100%;
+
+		cursor: pointer;
+		text-align: center;
+
+		text-decoration: none;
+		outline: none;
+		color: #72777c;
+
+		&:before {
+			display: inline-block;
+			content: '\f140'; //downward triangle
+			font: normal 20px/1 dashicons;
+			vertical-align: middle;
+		}
+
+		&:after {
+			display: inline-block;
+			content: "";
+			vertical-align: middle;
+			height: 100%;
+		}
+
+		&:hover {
+			color: #23282d;
+		}
+	}
+
+	body.rtl & .ame-widget-title-action {
+		left: 0;
+		right: auto;
+	}
+
+	.ame-widget-access-checkbox {
+		margin-right: 5px;
+	}
+
+	.ame-widget-flags {
+		position: absolute;
+		right: $titleActionWidth;
+		top: 0;
+		bottom: 0;
+		height: 100%;
+		text-align: right;
+
+		&::after {
+			display: inline-block;
+			content: "";
+			vertical-align: middle;
+			height: 100%;
+		}
+	}
+
+	$flagSize: 20px;
+
+	.ame-widget-flag {
+		height: $flagSize;
+		width: $flagSize;
+		display: inline-block;
+		vertical-align: middle;
+
+		&::after {
+			display: inline-block;
+			width: $flagSize;
+			height: $flagSize;
+			font: normal 20px/1 dashicons;
+			vertical-align: baseline;
+			color: #666;
+		}
+	}
+}
+
+.ame-missing-widget-flag::after {
+	content: '\f225';
+}
+
+.ame-widget-properties {
+	display: none;
+	background: white;
+
+	padding: 15px;
+
+	border: 1px solid $widgetBorderColor;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+
+	border-top: none;
+
+	ame-widget-property {
+		display: block;
+		padding: 0;
+		margin-bottom: 1em;
+	}
+
+	.ame-widget-property-name {
+		display: inline-block;
+	}
+
+	input[type="text"].ame-widget-property-value,
+	input[type="url"].ame-widget-property-value,
+	select.ame-widget-property-value,
+	textarea.ame-widget-property-value {
+		width: 100%;
+	}
+
+	a.ame-delete-widget:hover {
+		color: #f00;
+		text-decoration: none;
+		border: none;
+	}
+}
+
+.ame-open-dashboard-widget  {
+	.ame-widget-properties {
+		display: block;
+	}
+
+	.ame-widget-title-action:before {
+		content: '\f142'; //upward triangle
+	}
+
+	.ame-widget-top {
+		box-shadow: none;
+	}
+}
+
+@import "../../../css/indeterminate-checkbox";
+
+.ame-widget-access-checkbox,
+input[type="checkbox"].ame-widget-access-checkbox {
+	@include ame-indeterminate-checkbox;
+}
+
+/*
+ * Import dialog
+ */
+
+#ame-import-panel {
+	min-height: 70px;
+}
+
+#ame-import-file-selector {
+	max-width: 100%;
+}

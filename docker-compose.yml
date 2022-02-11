@@ -1,23 +1,10 @@
 version: "3.9"
     
-x-themes-volume:  
-  &themes-volume
+x-www-volume:  
+  &www-volume
   type: bind
-  source: ./src/themes/
-  target: /var/www/html/wp-content/themes/
-
-x-plugins-volume:  
-  &plugins-volume
-  type: bind
-  source: ./src/plugins/
-  target: /var/www/html/wp-content/plugins/
-
-x-uploads-volume:  
-  &uploads-volume
-  type: bind
-  source: ./src/uploads/
-  target: /var/www/html/wp-content/uploads/  
-
+  source: ./www/
+  target: /var/www/html/
 
 services:
   db:
@@ -61,9 +48,7 @@ services:
       WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
       WORDPRESS_DEBUG: ${WORDPRESS_DEBUG}
     volumes:
-      - *themes-volume  
-      - *plugins-volume
-      - *uploads-volume
+      - *www-volume  
  
 
 

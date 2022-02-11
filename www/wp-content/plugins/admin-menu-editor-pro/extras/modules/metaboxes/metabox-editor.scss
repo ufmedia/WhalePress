@@ -1,0 +1,79 @@
+@import "../../../css/boxes";
+
+#ame-meta-box-editor {
+	.ame-mb-check-column {
+		padding: 11px 0 0 3px;
+
+		width: 1.8em;
+		vertical-align: top;
+	}
+
+	.ame-meta-box-list {
+		width: auto;
+
+		td label {
+			vertical-align: top;
+		}
+	}
+
+	.ame-mb-default-visibility-column {
+		text-align: center;
+	}
+
+}
+
+#ws_actor_selector_container {
+	margin-right: 130px;
+}
+
+@mixin wp-generic-box {
+	background: white;
+
+	border: 1px solid $amePostboxBorderColor;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+
+	padding: 10px 8px;
+}
+
+#ame-mb-screen-list {
+	display: inline-block;
+	@include wp-generic-box;
+
+	//background: #f5f5f5; //Light grey alternative.
+	padding-top: 0;
+}
+
+#ame-mb-action-container {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#ame-mb-main-actions {
+	@include wp-generic-box;
+
+	box-sizing: border-box;
+
+	width: 150px;
+	margin-left: 10px;
+	margin-top: 0;
+
+	input.button-primary {
+		margin-bottom: 20px;
+	}
+
+	input.button {
+		width: 100%;
+	}
+}
+
+/* Tooltips */
+#ame-meta-box-editor .ame-meta-box-list {
+	.ws_tooltip_trigger {
+		visibility: hidden;
+		color: silver;
+	}
+
+	tr:hover .ws_tooltip_trigger {
+		visibility: visible;
+	}
+}

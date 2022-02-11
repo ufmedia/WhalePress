@@ -1,0 +1,9 @@
+create_sites
+delete_sites
+manage_sites
+manage_network
+manage_network_users
+manage_network_themes
+manage_network_plugins
+manage_network_options
+upgrade_network

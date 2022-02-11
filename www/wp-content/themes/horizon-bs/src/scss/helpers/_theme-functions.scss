@@ -1,0 +1,9 @@
+//Functions
+
+@function calc-marg($value) {
+    @return $marg * $value;  
+}
+
+@function calc-pad($value) {
+    @return $pad * $value;  
+}

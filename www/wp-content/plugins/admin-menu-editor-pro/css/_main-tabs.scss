@@ -1,0 +1,37 @@
+/***************************************
+		Tabs on the settings page
+ ***************************************/
+
+.wrap.ws-ame-too-many-tabs .ws-ame-nav-tab-list {
+	&.nav-tab-wrapper {
+		border-bottom-color: transparent;
+	}
+
+	.nav-tab {
+		border-bottom: 1px solid #c3c4c7;
+		margin-bottom: 10px;
+		margin-top: 0;
+	}
+}
+
+/* Spacing between the page heading and the tab list.
+
+Normally, this is handled by .nav-tab styles, but WordPress changes the margins at smaller screen sizes
+and the tabs end up without a left margin. Let's put that margin on the heading instead and remove it
+from the first tab. */
+
+#ws_ame_editor_heading {
+	margin-right: 0.305em;
+}
+
+.ws-ame-nav-tab-list {
+	a.nav-tab:first-of-type {
+		margin-left: 0;
+	}
+}
+
+/* When in "too many tabs" mode, there's too much space between the bottom of the tab list and the rest
+of the page. I haven't found a good way to change the margins of just the last row, so here's a partial fix. */
+.ws-ame-too-many-tabs #ws_actor_selector {
+	margin-top: 0;
+}

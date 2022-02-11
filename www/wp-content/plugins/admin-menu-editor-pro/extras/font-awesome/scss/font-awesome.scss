@@ -1,0 +1,59 @@
+/*!
+ *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+
+@import "variables";
+@import "mixins";
+@import "path";
+@import "core";
+@import "larger";
+@import "fixed-width";
+@import "list";
+@import "bordered-pulled";
+@import "animated";
+@import "rotated-flipped";
+@import "stacked";
+@import "icons";
+@import "screen-reader";
+
+//Adapt Font Awesome to the admin menu.
+
+@import "ame-variables";
+@import "ame-icons";
+
+#adminmenu #{$ame-menu-prefix} .wp-menu-image:before {
+	font-family: "FontAwesome", sans-serif !important;
+	font-size: 18px !important;
+	//line-height: 20px !important; //Maybe, if user approves.
+}
+
+//Override icons set as background images.
+#adminmenu#adminmenu#adminmenu #{$ame-menu-prefix} .wp-menu-image {
+	background-image: none;
+}
+
+#adminmenu .ame-submenu-icon .#{$fa-css-prefix} {
+	font-size: 18px;
+}
+
+//Icon selector support.
+
+#ws_icon_selector .ws_icon_option .ws_icon_image.#{$fa-css-prefix} {
+	width: 26px;
+	height: 20px;
+	padding: 6px 2px 4px 2px;
+	text-align: center;
+
+	font-size: 18px;
+
+	&:before {
+		color: #82878c;
+	}
+}
+
+.ws_select_icon .icon16.#{$fa-css-prefix}::before {
+	font-family: "FontAwesome", sans-serif;
+	font-size: 18px;
+	margin-top: 2px;
+}

@@ -1,0 +1,71 @@
+/* Admin Menu - global colors */
+#adminmenu > li {
+  background: $base-color;
+  /* Admin Menu: submenu */
+  /* Admin Menu: current */
+  /* Admin Menu: bubble */ }
+  #adminmenu > li a {
+    color: $text-color; }
+  #adminmenu > li div.wp-menu-image:before {
+    color: $icon-color; }
+
+  #adminmenu > li a:hover, #adminmenu > li.menu-top:hover, #adminmenu > li.opensub > a.menu-top, #adminmenu > li > a.menu-top:focus {
+    color: $menu-highlight-text; }
+  #adminmenu > li.menu-top:hover, #adminmenu > li.opensub > a.menu-top, #adminmenu > li > a.menu-top:focus {
+    background-color: $menu-highlight-background; }
+  #adminmenu > li.menu-top:hover div.wp-menu-image:before, #adminmenu > li.menu-top > a:focus div.wp-menu-image:before, #adminmenu > li.opensub > a.menu-top div.wp-menu-image:before {
+    color: $menu-highlight-icon; }
+
+  #adminmenu > li .wp-submenu, #adminmenu > li.wp-has-current-submenu .wp-submenu, #adminmenu > li.wp-has-current-submenu.opensub .wp-submenu, .folded #adminmenu > li.wp-has-current-submenu .wp-submenu
+  a.wp-has-current-submenu:focus + .wp-submenu {
+    background: $menu-submenu-background; }
+  #adminmenu > li.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
+    border-right-color: $menu-submenu-background; }
+
+  #adminmenu > li .wp-submenu .wp-submenu-head {
+    color: $menu-submenu-text; }
+  #adminmenu > li .wp-submenu a, #adminmenu > li.wp-has-current-submenu .wp-submenu a,
+  #adminmenu > li a.wp-has-current-submenu:focus + .wp-submenu a, .folded #adminmenu > li.wp-has-current-submenu .wp-submenu a
+  #adminmenu > li.wp-has-current-submenu.opensub .wp-submenu a {
+    color: $menu-submenu-text; }
+    #adminmenu > li .wp-submenu a:focus, #adminmenu > li .wp-submenu a:hover, #adminmenu > li.wp-has-current-submenu .wp-submenu a:focus, #adminmenu > li.wp-has-current-submenu .wp-submenu a:hover,
+    #adminmenu > li a.wp-has-current-submenu:focus + .wp-submenu a:focus,
+    #adminmenu > li a.wp-has-current-submenu:focus + .wp-submenu a:hover, .folded #adminmenu > li.wp-has-current-submenu .wp-submenu a
+    #adminmenu > li.wp-has-current-submenu.opensub .wp-submenu a:focus, .folded #adminmenu > li.wp-has-current-submenu .wp-submenu a
+    #adminmenu > li.wp-has-current-submenu.opensub .wp-submenu a:hover {
+      color: $menu-submenu-focus-text; }
+
+  #adminmenu > li .wp-submenu li.current a,
+  #adminmenu > li a.wp-has-current-submenu:focus + .wp-submenu li.current a, #adminmenu > li.wp-has-current-submenu.opensub .wp-submenu li.current a {
+    color: $menu-submenu-current-text; }
+    #adminmenu > li .wp-submenu li.current a:hover, #adminmenu > li .wp-submenu li.current a:focus,
+    #adminmenu > li a.wp-has-current-submenu:focus + .wp-submenu li.current a:hover,
+    #adminmenu > li a.wp-has-current-submenu:focus + .wp-submenu li.current a:focus, #adminmenu > li.wp-has-current-submenu.opensub .wp-submenu li.current a:hover, #adminmenu > li.wp-has-current-submenu.opensub .wp-submenu li.current a:focus {
+      color: $menu-submenu-focus-text; }
+
+  #adminmenu > li.current a.menu-top, #adminmenu > li.wp-has-current-submenu a.wp-has-current-submenu, #adminmenu > li.wp-has-current-submenu .wp-submenu .wp-submenu-head, .folded #adminmenu > li.current.menu-top {
+    color: $menu-current-text;
+    background: $menu-current-background; }
+
+  #adminmenu > li.wp-has-current-submenu div.wp-menu-image:before,
+  #adminmenu a.current:hover div.wp-menu-image:before,
+  #adminmenu > li.current div.wp-menu-image::before,
+  #adminmenu > li.wp-has-current-submenu a:focus div.wp-menu-image:before,
+  #adminmenu > li.wp-has-current-submenu.opensub div.wp-menu-image:before,
+  #adminmenu > li:hover div.wp-menu-image:before,
+  #adminmenu > li a:focus div.wp-menu-image:before,
+  #adminmenu > li.opensub div.wp-menu-image:before,
+  .ie8 #adminmenu > li.opensub div.wp-menu-image:before {
+    color: $menu-current-icon; }
+
+  #adminmenu > li .awaiting-mod,
+  #adminmenu > li .update-plugins {
+    color: $menu-bubble-text;
+    background: $menu-bubble-background; }
+  #adminmenu > li .current a .awaiting-mod,
+  #adminmenu > li a.wp-has-current-submenu .update-plugins, #adminmenu > li:hover a .awaiting-mod, #adminmenu > li.menu-top:hover > a .update-plugins {
+    color: $menu-bubble-current-text;
+    background: $menu-bubble-current-background; }
+
+#adminmenuback, #adminmenuwrap, #adminmenu {
+  background-color: $base-color; }

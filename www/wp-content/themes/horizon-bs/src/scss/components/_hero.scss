@@ -1,0 +1,16 @@
+.hero {
+    background-color:$grey1;
+    height:400px;
+    padding:0;
+    img {
+        padding-top:$navHeight;
+    }
+    .hero-content {
+        width:100%;
+        margin-top:calc-marg(5); 
+    }
+    &.home {
+        height:calc(100vh - $navHeight);
+    }
+}
+

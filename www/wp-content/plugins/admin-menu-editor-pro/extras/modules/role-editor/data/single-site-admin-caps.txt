@@ -1,0 +1,18 @@
+// Only Administrators of single site installations have the following capabilities. 
+// In Multisite, only the Super Admin has these abilities.
+// See: http://codex.wordpress.org/Roles_and_Capabilities#Additional_Admin_Capabilities
+
+update_core
+update_plugins
+update_themes
+install_plugins
+install_themes
+delete_themes
+delete_plugins
+edit_plugins
+edit_themes
+edit_files
+edit_users
+create_users
+delete_users
+unfiltered_html

@@ -1,0 +1,450 @@
+@import "../../css/boxes";
+
+$redirectInputSpacing: 10px;
+
+$itemBackground: #fff;
+$defaultItemBorderColor: #dcdcde;
+$itemPadding: 10px;
+
+$inputHeight: 30px;
+$inputBorderWidth: 1px;
+$dropdownTriggerWidth: 30px;
+
+.ame-rui-redirect-list {
+	display: flex;
+	flex-direction: column;
+
+	padding-top: 1px; //To offset the negative margin on the first item.
+}
+
+.ame-rui-redirect {
+	display: flex;
+	flex-direction: row;
+
+	background: $itemBackground;
+	border: 1px solid $defaultItemBorderColor;
+	margin-top: -1px;
+
+	&.ui-sortable-helper {
+		border: 1px solid #8c8f94;
+		box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.30);
+	}
+}
+
+.ame-rui-redirect-content {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: row;
+
+	padding: $itemPadding $itemPadding $itemPadding 0;
+}
+
+.ame-rui-actor {
+	margin-right: $redirectInputSpacing;
+
+	font-size: 14px;
+	line-height: 27px;
+}
+
+.ame-rui-url-template, ame-redirect-url-input {
+	flex-grow: 1;
+	display: block; //Only needed when outside a flex container.
+
+	margin-right: $redirectInputSpacing;
+	position: relative;
+
+	input[type=text] {
+		width: 100%;
+
+		&.ame-rui-has-url-dropdown {
+			padding-right: $dropdownTriggerWidth + 2px;
+		}
+	}
+
+	input[readonly] {
+		background-color: #dbeeff; //Eeeh. Choosing colours is hard.
+	}
+}
+
+.ame-rui-url-dropdown-trigger {
+	$triggerHeight: $inputHeight - 2 * $inputBorderWidth;
+
+	display: block;
+	position: absolute;
+	width: $dropdownTriggerWidth;
+	height: $triggerHeight;
+
+	top: $inputBorderWidth;
+	right: $inputBorderWidth;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+
+	cursor: pointer;
+	text-align: center;
+
+	color: #787c82;
+
+	&:hover {
+		color: #1d2327;
+	}
+
+	.am-rui-trigger-icon {
+		&:before {
+			content: "\f140";
+			font: normal 20px dashicons;
+			line-height: $triggerHeight;
+			vertical-align: middle;
+		}
+	}
+}
+
+.ame-rui-shortcodes-enabled {
+	margin: 0 $redirectInputSpacing 0 0;
+
+	display: inline-block;
+	box-sizing: border-box;
+	min-height: $inputHeight;
+	padding: 0 10px;
+
+	$lineHeight: $inputHeight - 2 * $inputBorderWidth;
+	line-height: $lineHeight;
+
+	border: $inputBorderWidth solid #dcdcde;
+	border-radius: 3px;
+	background: #f6f7f7;
+
+	.dashicons {
+		vertical-align: top;
+		line-height: $lineHeight;
+	}
+
+	&:hover, &:active {
+		background: #f0f0f1;
+		border-color: #0a4b78;
+	}
+}
+
+.ame-rui-drag-handle {
+	cursor: grab;
+	min-width: 30px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.ui-sortable-helper > & {
+		cursor: grabbing;
+	}
+}
+
+.ame-rui-drag-icon {
+	fill: rgb(30, 30, 30);
+}
+
+#ame-rui-menu-items {
+	background-image: none;
+	max-width: 40rem; //WP 5.8 limits the width to 25 rem, but the menu input can be wider than that.
+	padding-right: 8px;
+
+	box-shadow: 3px 3px 4px -2px rgba(0, 0, 0, 0.50);
+
+	&:hover, &:focus {
+		color: unset;
+	}
+
+	option:hover {
+		background-color: #f0f0f5;
+	}
+}
+
+.ame-rui-default-redirect-container {
+	max-width: 768px;
+
+	.ame-rui-redirect-content {
+		padding-left: $itemPadding;
+	}
+}
+
+.ame-rui-add-actor-dropdown, #ame-rui-user-search-query {
+	min-width: 15em;
+}
+
+.ame-rui-found-users {
+	//Add a background color to the selected item. WP 5.8 doesn't have it by default, at least not for all
+	//autocomplete menus. The "ui-state-active" class is added to the wrapper, not to the entire LI, so we
+	//also need to adjust the paddings to make the wrapper expand to fill the item.
+	li.ui-menu-item {
+		padding: 0;
+	}
+
+	.ui-menu-item-wrapper {
+		padding: 4px 10px 6px;
+	}
+
+	.ui-state-active {
+		background-color: #2271b1;
+		color: #fff;
+	}
+}
+
+.ame-rui-missing-actor-indicator {
+	vertical-align: middle;
+	font-style: italic;
+}
+
+.ame-rui-trigger-selector {
+	display: inline-block;
+	margin-bottom: 0;
+
+	list-style: none;
+	font-size: 14px;
+
+	li {
+		display: inline-block;
+		margin: 0;
+
+		a {
+			text-decoration: none;
+			transition: none;
+		}
+	}
+}
+
+.ame-rui-small-tabs {
+	$tabBorderColor: #c3c4c7;
+	$tabBackgroundColor: #e3e3e5;
+	$activeTabBackground: transparent;
+	$contentBackgroundColor: #f0f0f1;
+	$activeTabText: #000;
+
+	display: inline-block;
+	padding-left: 7px;
+	border-bottom: 1px solid $tabBorderColor;
+
+
+	li {
+		display: inline-block;
+		margin: 0;
+		background: $tabBackgroundColor;
+		border: 1px solid $tabBorderColor;
+		border-bottom: none;
+
+		a {
+			display: inline-block;
+			transition: none;
+			min-width: 7em;
+
+			font-size: 14px;
+			padding: 5px 8px 6px 8px;
+			cursor: pointer;
+			text-decoration: none;
+
+			color: #444;
+
+			&:hover {
+				color: #2271b1;
+			}
+		}
+	}
+
+	.ame-rui-active-tab {
+		background: $activeTabBackground;
+		border-bottom: 1px solid $contentBackgroundColor;
+		margin-bottom: -1px;
+
+		a {
+			color: $activeTabText;
+
+			&:hover {
+				color: $activeTabText;
+			}
+		}
+	}
+}
+
+.ame-rui-filter-like-tabs {
+	$textColor: #646970;
+	$markerColor: #007cba; //Blue like in Gutenberg.
+	//$markerColor: #646970; //Grey like on the "Plugins -> Add New" page.
+
+	$hoverTextColor: #135e96; //Default for links in WP 5.8.
+	//$hoverMarkerColor: #c1cbd9; //Light grey.
+	$hoverMarkerColor: transparent;
+
+	display: inline-flex;
+	margin: 13px 0 0 0;
+	list-style: none;
+
+	border: 1px solid #c3c4c7;
+	background: #fff;
+
+	li {
+		display: inline-block;
+		margin: 0;
+		padding: 0;
+		border-style: none;
+
+		a {
+			display: inline-block;
+			margin: 0;
+			padding: 10px 14px;
+			min-width: 7em;
+
+			border: none;
+			border-bottom: 4px solid transparent;
+
+			color: $textColor;
+			text-decoration: none;
+			cursor: pointer;
+
+			&:hover {
+				color: $hoverTextColor;
+				border-bottom-color: $hoverMarkerColor;
+			}
+		}
+	}
+
+	.ame-rui-active-tab {
+		a {
+			border-bottom-color: $markerColor;
+		}
+
+		a:hover {
+			color: $textColor;
+			border-bottom-color: $markerColor;
+		}
+	}
+}
+
+.ame-rui-sub-tabs {
+	margin-top: 6px;
+	font-size: 13px;
+
+	li {
+		&::after {
+			content: '|';
+		}
+
+		&:last-child::after {
+			content: '';
+		}
+
+		a {
+			display: inline-block;
+			text-align: center;
+			padding: 0.2em;
+			line-height: 2;
+			cursor: pointer;
+
+			&::before {
+				display: block;
+				content: attr(data-text);
+				font-weight: bold;
+				height: 1px;
+				overflow: hidden;
+				visibility: hidden;
+				margin-bottom: -1px;
+			}
+		}
+
+		&:first-child a {
+			padding-left: 0;
+			text-align: left;
+		}
+	}
+
+	.ame-rui-active-tab {
+		a {
+			font-weight: 600;
+			color: #000;
+		}
+	}
+}
+
+.ame-rui-actions button {
+	.dashicons {
+		vertical-align: inherit;
+		line-height: 28px;
+	}
+}
+
+#ame-rui-column-container {
+	display: flex;
+	flex-direction: row;
+}
+
+#ame-rui-main-section {
+	display: block;
+	flex-grow: 1;
+	max-width: 1320px;
+}
+
+#ame-rui-sidebar {
+	display: none;
+	width: 300px;
+	flex-shrink: 0;
+	flex-grow: 0;
+	align-self: flex-start;
+
+	margin-left: 20px;
+}
+
+#ame-rui-main-actions {
+	@include ame-emulated-postbox();
+	margin-bottom: 0;
+	padding: 10px 8px;
+	border: 1px solid $amePostboxBorderColor;
+
+	input.button {
+		max-width: 150px;
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 961px) {
+	.ame-rui-actor {
+		min-width: 12em;
+	}
+
+	.ame-rui-actions button .dashicons {
+		display: none;
+	}
+}
+
+@media only screen and (max-width: 960px) {
+	.ame-rui-actor {
+		min-width: 10em;
+	}
+
+	.ame-rui-shortcodes-enabled, .ame-rui-actions {
+		.ame-rui-button-label {
+			display: none;
+		}
+	}
+}
+
+@media only screen and (max-width: 782px) {
+	$lineHeight: 38px;
+
+	.ame-rui-actor {
+		line-height: $lineHeight;
+	}
+
+	.ame-rui-redirect .ame-rui-actions button {
+		margin-bottom: 0;
+
+		.dashicons {
+			line-height: $lineHeight;
+			vertical-align: top;
+		}
+	}
+
+	.ame-rui-shortcodes-enabled {
+		line-height: $lineHeight;
+
+		.dashicons {
+			vertical-align: top;
+			line-height: $lineHeight;
+		}
+	}
+}
