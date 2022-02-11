@@ -1,0 +1,70 @@
+version: "3.9"
+    
+x-themes-volume:  
+  &themes-volume
+  type: bind
+  source: ./src/themes/
+  target: /var/www/html/wp-content/themes/
+
+x-plugins-volume:  
+  &plugins-volume
+  type: bind
+  source: ./src/plugins/
+  target: /var/www/html/wp-content/plugins/
+
+x-uploads-volume:  
+  &uploads-volume
+  type: bind
+  source: ./src/uploads/
+  target: /var/www/html/wp-content/uploads/  
+
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./src/initial-db:/docker-entrypoint-initdb.d
+    command: "--default-authentication-plugin=mysql_native_password"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:${WP_VERSION}
+    ports:
+      - "80:80"
+    env_file:
+      - ./.env
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+      WORDPRESS_DEBUG: ${WORDPRESS_DEBUG}
+    volumes:
+      - *themes-volume  
+      - *plugins-volume
+      - *uploads-volume
+ 
+
+
+  
