@@ -2,22 +2,19 @@
 //Enqueue CSS
 function ufm_enqueue_base_style() {
     wp_enqueue_style('base-styles', get_template_directory_uri() . '/style.css');
-    wp_enqueue_style('site-styles', get_stylesheet_directory_uri() . '/dist/css/main.min.css');
     //wp_enqueue_style('typekit-styles', 'https://use.typekit.net/lvk4mcl.css', array()); //Default is Horizon 4.0
 }
 
 //Enqueue JS
 function ufm_enqueue_base_script() {
     wp_enqueue_script('jquery');
-    wp_enqueue_script('bootstrap-scripts', get_stylesheet_directory_uri() . '/src/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', array('jquery'));
-    wp_enqueue_script('site-scripts', get_stylesheet_directory_uri() . '/dist/js/main.min.js', array('jquery', 'bootstrap-scripts'));
-	wp_enqueue_script('plugin-scripts', get_stylesheet_directory_uri() . '/dist/js/plugins.min.js', array('jquery', 'bootstrap-scripts'));
+    wp_enqueue_script('site-bundle', get_stylesheet_directory_uri() . '/dist/bundle.js', array('jquery'));
 
     //if (get_field('captcha_secret', 'options') && get_field('captcha_public', 'options')) {
      //   wp_enqueue_script('captcha', 'https://www.google.com/recaptcha/api.js?render=' . get_field('captcha_public', 'options'), array()); 
     //}
 
-    wp_localize_script('plugin-scripts', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
+    wp_localize_script('site-bundle', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
 }
 
 

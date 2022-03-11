@@ -1,5 +1,5 @@
 //Bootstrap Variables
-//@import "../node_modules/bootstrap/scss/functions";
+@import "~bootstrap/scss/functions";
 
 //Theme Variables and Config
 @import "helpers/config";
@@ -9,24 +9,53 @@
 @import "helpers/placeholders";
 @import "helpers/animations";
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+//@import "~bootstrap/scss/bootstrap"; The whole lot should you want to be lazy
 
 //Required Bootstrap
-//@import "../node_modules/bootstrap/scss/variables";
-//@import "../node_modules/bootstrap/scss/mixins";
-//@import "../node_modules/bootstrap/scss/root";
+@import "~bootstrap/scss/variables"; 
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
 
 //Optional Bootstrap Components
-//@import "../node_modules/bootstrap/scss/utilities";
-//@import "../node_modules/bootstrap/scss/reboot";
-//@import "../node_modules/bootstrap/scss/type";
-//@import "../node_modules/bootstrap/scss/images";
-//@import "../node_modules/bootstrap/scss/containers";
-//@import "../node_modules/bootstrap/scss/grid";
-//@import "../node_modules/bootstrap/scss/helpers";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot"; 
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/accordion";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/offcanvas";
+@import "~bootstrap/scss/placeholders";
 
-// Optional Bootstrap API
-//@import "../node_modules/bootstrap/scss/utilities/api";
+// Helpers
+@import "~bootstrap/scss/helpers";
+
+// Utilities
+@import "~bootstrap/scss/utilities/api";
+// scss-docs-end import-stack
 
 //Theme Base
 @import "base/base";
