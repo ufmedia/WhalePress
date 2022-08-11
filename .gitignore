@@ -1,3 +1,4 @@
-www
+www/*
+!www/wp-content/
 
-!www/wp-content/*
+

@@ -1,0 +1,18 @@
+<div id="primary-menu" class="hidden bg-gray-100 mt-4 p-4 lg:mt-0 lg:p-0 lg:bg-transparent lg:block">
+<menu class="lg:flex lg:-mx-4">
+{% for item in menu.items %}
+	<li class="nav-main-item lg:mx-4 {{ item.classes|join(' ') }}">
+		<a class="nav-main-link" href="{{ item.link }}">{{ item.title }}</a>
+		{% if item.children %}
+			<ul class="nav-drop">
+				{% for child in item.children %}
+					<li class="nav-drop-item">
+						<a href="{{ child.link }}">{{ child.title }}</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</li>
+{% endfor %}
+</menu>
+</div>

@@ -1,0 +1,31 @@
+{% block html_head_container %}
+
+	{% include 'html-header.twig' %}
+
+	{% block head %}{% endblock %}
+
+</head>{% endblock %}<body class="{{body_class}} bg-white text-gray-900 antialiased" data-template="base.twig">
+
+<div id="page" class="min-h-screen flex flex-col">
+
+	{% include 'header.twig' %}
+
+	<div id="content" class="site-content flex-grow">
+		<main>
+			<div class="container mx-auto my-8">
+
+				{% block content %}
+					
+				{% endblock %}
+
+			</div>
+		</main>
+	</div>
+
+	{% block footer %}
+		{% include 'footer.twig' %}
+	{% endblock %}
+
+</div>
+
+{{ function('wp_footer') }}</body>
