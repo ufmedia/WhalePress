@@ -7,8 +7,8 @@ module.exports = {
     content: [
         './*/*.php',
         './**/*.php',
-        './resources/css/*.css',
-        './resources/js/*.js',
+        './assets/src/css/*.css',
+        './assets/src/js/*.js',
         './safelist.txt'
     ],
     theme: {

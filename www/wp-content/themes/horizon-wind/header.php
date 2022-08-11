@@ -12,14 +12,9 @@
 
 <body <?php body_class('bg-white text-gray-900 antialiased'); ?>>
 
-	<?php do_action('horizon_site_before'); ?>
-
 	<div id="page" class="min-h-screen flex flex-col">
 
-		<?php do_action('horizon_header'); ?>
-
 		<header>
-
 			<div class="mx-auto container">
 				<div class="lg:flex lg:justify-between lg:items-center border-b py-6">
 					<div class="flex justify-between items-center">
@@ -32,11 +27,9 @@
 										<?php echo get_bloginfo('name'); ?>
 									</a>
 								</div>
-
 								<p class="text-sm font-light text-gray-600">
 									<?php echo get_bloginfo('description'); ?>
 								</p>
-
 							<?php } ?>
 						</div>
 
@@ -82,7 +75,5 @@
 				</div>
 			<?php endif; ?>
 			<!-- End introduction -->
-
-			<?php do_action('horizon_content_start'); ?>
 
 			<main>

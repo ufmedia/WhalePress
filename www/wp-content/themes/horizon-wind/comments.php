@@ -7,7 +7,6 @@
 if ( post_password_required() ) {
 	return;
 }
-return;
 ?>
 
 <div id="comments" class="comments-area my-8">

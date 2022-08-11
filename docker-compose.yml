@@ -21,7 +21,6 @@ services:
     
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: pma
     links:
       - db
     environment:
@@ -49,22 +48,6 @@ services:
       WORDPRESS_DEBUG: ${WORDPRESS_DEBUG}
     volumes:
       - *www-volume  
- 
-  nodejs:
-    depends_on:
-      - wordpress
-    image: node:16
-    environment:
-      - NODE_ENV=development
-    ports:
-      - "3000:3000"
-      - "3001:3001"
-    volumes:
-      - .:/home/node/project
-    working_dir: /home/node/project/www/wp-content/themes/horizon-bs
-    command: >
-      sh -c "npm install &&
-             npm install --save-dev &&
-             npm run watch-sync" 
+
 
   

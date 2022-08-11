@@ -22,6 +22,7 @@
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				)
 			);
+			
 
 			wp_link_pages(
 				array(
