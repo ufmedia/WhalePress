@@ -1,0 +1,16 @@
+#adminmenu .wp-first-item .dashicons-admin-generic {
+    display:none!important;
+}
+
+#adminmenu .wp-first-item .wp-menu-name {
+ padding:8px!important;
+}
+
+#contextual-help-link-wrap { display: none !important; }
+
+#adminmenu .wp-first-item .wp-submenu a:focus, 
+#adminmenu .wp-first-item .wp-submenu a:hover, 
+#adminmenu .wp-first-item a:hover, 
+#adminmenu .wp-first-item li.menu-top>a:focus {
+    box-shadow:none!important;
+}

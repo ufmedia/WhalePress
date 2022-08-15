@@ -98,7 +98,17 @@ class TimberTemplate extends Timber\Site
 			)
 		);
 
-		add_theme_support('custom-logo');
+		$logo_defaults = array(
+			'height'               => 100,
+			'width'                => 400,
+			'flex-height'          => true,
+			'flex-width'           => true,
+			'header-text'          => array( 'site-title', 'site-description' ),
+			'unlink-homepage-logo' => true, 
+		);
+
+		add_theme_support('custom-logo', $logo_defaults);
+
 		add_theme_support('post-thumbnails');
 
 		add_theme_support('align-wide');
@@ -119,6 +129,9 @@ class TimberTemplate extends Timber\Site
 
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
+		$custom_logo_url = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ), 'full' );
+     	$context['custom_logo_url'] = $custom_logo_url; 
+		$context['toast'] ='beans'; 
 		return $context;
 	}
 
