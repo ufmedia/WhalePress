@@ -1,2 +1,5 @@
-www/*
-!www/wp-content/
+*
+!wp-content/
+!src/initial-db
+!docker-compose.yml
+!Readme.md

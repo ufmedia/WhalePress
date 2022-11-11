@@ -1,9 +1,0 @@
-?>
-<div class="container-fluid bg-1">
-    <div class="container feat-container 'CPT'">
-        <h3>'CPT'</h3>
-        <p class="strap">Some text goes here, more SEO and stuff yeah, woop!</p>
-        <?= get_template_part('includes/templates/loops/'CPT'') ?>
-    </div>
-</div>
-<?php
