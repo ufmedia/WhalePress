@@ -1,5 +1,10 @@
 *
 !wp-content/
-!src/initial-db
+!wp-content/plugins/
+!wp-content/themes/
+
+!local/
+!local/initial-db/
+
 !docker-compose.yml
 !Readme.md
