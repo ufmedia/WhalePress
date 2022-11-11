@@ -1,11 +1,28 @@
-*
+/*
 !.gitkeep
 !wp-content/
 !wp-content/plugins/
-!wp-content/themes/
-
+!wp-content/themes/  
 !local/
 !local/initial-db/
-
+local/mysql-data
 !docker-compose.yml
 !Readme.md
+
+#Ignore plugins we don't want
+wp-content/plugins/akismet
+wp-content/plugins/hello.php
+
+#Ignore twenty* themes
+wp-content/themes/twenty*
+
+# Ignore local uploads
+wp-content/uploads/
+
+# Ignore local langauages
+wp-content/languages/
+
+# Ignore local uppgrade
+wp-content/upgrade/
+
+
