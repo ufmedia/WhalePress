@@ -5,7 +5,7 @@
 !wp-content/themes/  
 !local/
 !local/initial-db/
-local/mysql-data
+local/var
 !docker-compose.yml
 !Readme.md
 

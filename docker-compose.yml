@@ -10,8 +10,8 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      - ./src/database/initial-db:/docker-entrypoint-initdb.d
-      - ./src/database/persistent:/var/lib/mysql
+      - ./local/database/initial-db:/docker-entrypoint-initdb.d
+      - ./local/database/var/lib/mysql:/var/lib/mysql
     command: "--default-authentication-plugin=mysql_native_password"
     restart: unless-stopped
     environment:
