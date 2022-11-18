@@ -10,8 +10,8 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      - ./local/database/initial-db:/docker-entrypoint-initdb.d
-      - ./local/database/var/lib/mysql:/var/lib/mysql
+      - ./local/initial-db:/docker-entrypoint-initdb.d
+      - ./local/var/lib/mysql:/var/lib/mysql
     command: "--default-authentication-plugin=mysql_native_password"
     restart: unless-stopped
     environment:
@@ -35,7 +35,10 @@ services:
   wordpress:
     depends_on:
       - db
-    image: wordpress:${WP_VERSION}
+    build:
+      dockerfile: Dockerfile
+      args:
+        WP_VERSION: ${WP_VERSION}
     ports:
       - "80:80"
     env_file:
