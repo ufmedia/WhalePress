@@ -8,6 +8,7 @@
 local/var
 !docker-compose.yml
 !Readme.md
+!Dockerfile
 
 #Ignore plugins we don't want
 wp-content/plugins/akismet
