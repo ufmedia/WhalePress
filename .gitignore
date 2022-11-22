@@ -9,7 +9,7 @@ local/var
 !docker-compose.yml
 !Readme.md
 !Dockerfile
-
+!wp-config.php
 #Ignore plugins we don't want
 wp-content/plugins/akismet
 wp-content/plugins/hello.php
