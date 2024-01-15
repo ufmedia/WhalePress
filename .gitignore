@@ -4,15 +4,24 @@
 !wp-content/plugins/
 !wp-content/themes/  
 !local/
-!local/initial-db/
+!local/uploads.ini
 local/var
 !docker-compose.yml
 !Readme.md
 !Dockerfile
 !wp-config.php
-#Ignore plugins we don't want
-wp-content/plugins/akismet
-wp-content/plugins/hello.php
+!.gitignore
+!composer.json
+!composer.lock
+
+.DS_Store
+
+.env
+
+# Ignore all plugins except paid for or custom ones
+wp-content/plugins/*
+#!wp-content/plugins/plugin-name/
+
 
 #Ignore twenty* themes
 wp-content/themes/twenty*
@@ -23,7 +32,24 @@ wp-content/uploads/
 # Ignore local langauages
 wp-content/languages/
 
-# Ignore local uppgrade
+# Ignore local upgrade
 wp-content/upgrade/
 
+# Ignore local debug
+wp-content/debug*
 
+# Ignore local object cache
+wp-content/db.php
+
+# Ignore local .map  and asset build files
+# wp-content/themes/c19inquiry/public/build/*.map
+# wp-content/themes/c19inquiry/public/build/index.asset.php
+# wp-content/themes/c19inquiry/public/build/index.js
+# wp-content/themes/c19inquiry/public/build/style-index.css
+
+# Ignore local vendor folder
+wp-content/vendor/
+
+phpinfo.php
+
+*node_modules*

@@ -33,4 +33,9 @@ RUN cd /tmp && \
 
 # Add your custom Xdebug configuration
 COPY local/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+# Enable Xdebug
+RUN docker-php-ext-enable xdebug
+
+# Restart Apache
 RUN service apache2 restart

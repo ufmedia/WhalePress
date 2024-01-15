@@ -1,4 +1,9 @@
 {
-    "git.ignoreLimitWarning": true,
-    "css.validate": false
+    "phpsab.executablePathCBF": "/home/ufmedia/.config/composer/vendor/bin/phpcbf",
+    "phpsab.executablePathCS": "/home/ufmedia/.config/composer/vendor/bin/phpcs",
+    "phpsab.autoRulesetSearch": false,
+    "phpsab.standard": "WordPress",
+    "phpsab.snifferArguments": [
+        "--ignore=*/wp-admin/*,*/wp-includes/*"
+    ]
 }

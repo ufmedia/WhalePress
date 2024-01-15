@@ -1,0 +1,11 @@
+{
+    "phpsab.executablePathCBF": "/home/USER/.config/composer/vendor/bin/phpcbf",
+    "phpsab.executablePathCS": "/home/USER]/.config/composer/vendor/bin/phpcs",
+    "phpsab.autoRulesetSearch": false,
+    "phpsab.standard": "WordPress",
+    "phpsab.snifferArguments": [
+        "--ignore=*/wp-admin/*,*/wp-includes/*"
+    ]
+}
+
+// An example configuration for PHPCS and PHPCBF using the PHP CodeSniffer extension.
