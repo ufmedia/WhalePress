@@ -15,8 +15,8 @@ local/var
 !composer.lock
 
 .DS_Store
-
 .env
+!.env-example
 
 # Ignore all plugins except paid for or custom ones
 wp-content/plugins/*
@@ -47,9 +47,10 @@ wp-content/db.php
 # wp-content/themes/c19inquiry/public/build/index.js
 # wp-content/themes/c19inquiry/public/build/style-index.css
 
-# Ignore local vendor folder
+# Ignore local vendor folders
+/vendor/
 wp-content/vendor/
 
 phpinfo.php
+node_modules
 
-*node_modules*

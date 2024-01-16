@@ -1,0 +1,25 @@
+{
+    "name": "ufmedia/dockpress",
+    "description": "A complete wordpress development environment.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "John Thompson",
+            "email": "john@ufmedia.co.uk"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "wpackagist-plugin/classic-editor": "^1.6"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}
