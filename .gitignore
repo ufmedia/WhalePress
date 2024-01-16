@@ -41,12 +41,6 @@ wp-content/debug*
 # Ignore local object cache
 wp-content/db.php
 
-# Ignore local .map  and asset build files
-# wp-content/themes/c19inquiry/public/build/*.map
-# wp-content/themes/c19inquiry/public/build/index.asset.php
-# wp-content/themes/c19inquiry/public/build/index.js
-# wp-content/themes/c19inquiry/public/build/style-index.css
-
 # Ignore local vendor folders
 /vendor/
 wp-content/vendor/
