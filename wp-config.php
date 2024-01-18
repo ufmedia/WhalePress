@@ -108,7 +108,9 @@ $table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', !!getenv_docker('WORDPRESS_DEBUG', '') );
-define('WP_DISABLE_FATAL_ERROR_HANDLER', getenv_docker('WP_DISABLE_FATAL_ERROR_HANDLER', false));
+define( 'WP_DEBUG_LOG', !!getenv_docker('WP_DEBUG_LOG', '') );
+define( 'WP_DEBUG_DISPLAY', !!getenv_docker('WP_DEBUG_DISPLAY', '') );
+define( 'WP_DISABLE_FATAL_ERROR_HANDLER', !!getenv_docker('WP_DISABLE_FATAL_ERROR_HANDLER', '') );
 
 /* Add any custom values between this line and the "stop editing" line. */
 
