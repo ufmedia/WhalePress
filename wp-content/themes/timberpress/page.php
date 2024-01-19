@@ -23,7 +23,7 @@
 
 $context = Timber::context();
 
-$timber_post     = new Timber\Post();
+$timber_post     = Timber::get_post();
 $context['post'] = $timber_post;
 if ( is_front_page() ) {
 	Timber::render( array( 'home.twig' ), $context );

@@ -6,14 +6,18 @@
  * @package TimberPress
  */
 
+namespace TimberPressTheme;
+
+use TimberPressTheme\TimberPressInterface;
 use Timber\Site;
+use Timber;
 
 /**
  * TimberPress class.
  *
  * This class is used to initialize Timber (and Twig) along with the global context and custom functions.
  */
-class TimberPress extends Site {
+class TimberPress extends Site implements TimberPressInterface {
 
 	/**
 	 * Construct
@@ -21,11 +25,9 @@ class TimberPress extends Site {
 	 * Add hooks for timber initialization.
 	 */
 	public function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
-		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
-		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
-		add_action( 'init', array( $this, 'register_post_types' ) );
-		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_filter( 'timber/context', array( $this, 'add_to_context' ), 10, 1 );
+		add_action( 'after_setup_theme', array( $this, 'theme_supports' ), 10, 0 );
+		add_filter( 'timber/twig', array( $this, 'add_to_twig' ), 10, 1 );
 		parent::__construct();
 	}
 
@@ -38,7 +40,7 @@ class TimberPress extends Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		$context['menu'] = Timber::get_menu( 'Main menu' );
+		$context['menu'] = Timber::get_menu( 'main-menu' );
 		$context['site'] = $this;
 		return $context;
 	}

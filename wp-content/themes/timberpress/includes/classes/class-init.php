@@ -6,6 +6,8 @@
  * @package TimberPress
  */
 
+namespace TimberPressTheme;
+
 /**
  * Init class.
  *
@@ -13,7 +15,7 @@
  *
  * @package TimberPress
  */
-class Init {
+class Init implements InitInterface {
 
 
 	/**
@@ -41,24 +43,24 @@ class Init {
 	}
 
 	/**
+	 * Register Menus.
+	 */
+	public function timberpress_register_menus() {
+		register_nav_menu( 'main-menu', __( 'Main Menu' ) );
+	}
+
+	/**
 	 * Get asset path.
 	 *
 	 * @param string $path Path to asset.
 	 * @return string
 	 */
-	public function timberpress_asset( $path ) {
+	protected function timberpress_asset( $path ) {
 		if ( wp_get_environment_type() === 'production' ) {
 			return get_stylesheet_directory_uri() . '/public/build/' . $path;
 		}
 
 		return add_query_arg( 'time', time(), get_stylesheet_directory_uri() . '/public/build/' . $path );
-	}
-
-	/**
-	 * Register Menus.
-	 */
-	public function timberpress_register_menus() {
-		register_nav_menu( 'main-menu', __( 'Main Menu' ) );
 	}
 }
 
