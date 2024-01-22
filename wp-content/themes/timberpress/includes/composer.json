@@ -1,10 +1,10 @@
 {
-    "require": {
-        "timber/timber": "^2.0"
-    },
-    "config": {
-        "allow-plugins": {
-            "composer/installers": true
-        }
-    }
+	"require": {
+		"timber/timber": "^2.0"
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	}
 }

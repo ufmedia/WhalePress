@@ -48,4 +48,4 @@
     ]
 }
 
-// An example settings.json file for VS Code using Xdebug and the PHP Debug extension.
+// An example launch.json file for VS Code using Xdebug and the PHP Debug extension.
