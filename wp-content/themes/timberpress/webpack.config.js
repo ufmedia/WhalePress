@@ -10,7 +10,6 @@ module.exports = merge( defaultConfig, {
 	output: {
 		path: path.resolve( process.cwd(), 'public/build' ),
 	},
-	plugins: [ ...plugins ],
 	module: {
 		rules: [
 			{
