@@ -42,7 +42,6 @@ services:
         WP_VERSION: ${WP_VERSION}
     ports:
       - 80:80
-      - 9003:9003
     env_file:
       - ./.env
     restart: unless-stopped
