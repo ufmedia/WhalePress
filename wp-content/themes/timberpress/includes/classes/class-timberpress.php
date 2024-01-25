@@ -49,7 +49,7 @@ class TimberPress extends Site {
 	 *
 	 * @return void
 	 */
-	public function theme_supports() {
+	public function theme_supports(): void {
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
@@ -105,7 +105,8 @@ class TimberPress extends Site {
 
 	/** This is where you can add your own functions to twig.
 	 *
-	 * @param string $twig get extension.
+	 * @param array $twig get extension.
+	 * @return array
 	 */
 	public function add_to_twig( $twig ) {
 
