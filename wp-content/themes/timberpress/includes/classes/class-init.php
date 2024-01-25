@@ -25,15 +25,17 @@ class Init {
 	 *
 	 * @return void
 	 */
-	public function __construct() {
+	public function __construct() : void {
 		add_action( 'wp_enqueue_scripts', array( $this, 'timberpress_enqueue_scripts' ) );
 		add_action( 'init', array( $this, 'timberpress_register_menus' ) );
 	}
 
 	/**
 	 * Enqueue theme assets.
+  	 * 
+    	 * @return void
 	 */
-	public function timberpress_enqueue_scripts() {
+	public function timberpress_enqueue_scripts() : void {
 		$theme = wp_get_theme();
 
 		wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap', null, null ); // Google Fonts.
@@ -44,8 +46,10 @@ class Init {
 
 	/**
 	 * Register Menus.
+  	 * 
+         * @return void
 	 */
-	public function timberpress_register_menus() {
+	public function timberpress_register_menus() : void {
 		register_nav_menu( 'main-menu', __( 'Main Menu' ) );
 	}
 
