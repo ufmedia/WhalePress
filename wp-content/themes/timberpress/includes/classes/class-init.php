@@ -15,7 +15,7 @@ namespace TimberPressTheme;
  *
  * @package TimberPress
  */
-class Init implements InitInterface {
+class Init {
 
 
 	/**

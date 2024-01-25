@@ -8,7 +8,6 @@
 
 namespace TimberPressTheme;
 
-use TimberPressTheme\TimberPressInterface;
 use Timber\Site;
 use Timber;
 
@@ -17,7 +16,7 @@ use Timber;
  *
  * This class is used to initialize Timber (and Twig) along with the global context and custom functions.
  */
-class TimberPress extends Site implements TimberPressInterface {
+class TimberPress extends Site {
 
 	/**
 	 * Construct
