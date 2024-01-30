@@ -47,4 +47,4 @@ wp-content/vendor/
 
 phpinfo.php
 node_modules
-
+.vscode
