@@ -1,5 +1,5 @@
 {
-    "phpsab.executablePathCBF": "/home/[USER/.config/composer/vendor/bin/phpcbf",
+    "phpsab.executablePathCBF": "/home/[USER]/.config/composer/vendor/bin/phpcbf",
     "phpsab.executablePathCS": "/home/[USER]/.config/composer/vendor/bin/phpcs",
     "phpsab.autoRulesetSearch": false,
     "phpsab.standard": "WordPress",
@@ -8,4 +8,4 @@
     ]
 }
 
-// An example configuration for PHPCS and PHPCBF using the PHP CodeSniffer extension.
+// An example configuration for PHPCS and PHPCBF using the PHP CodeSniffer extension. Don't forget to update the paths above with yours.
