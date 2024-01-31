@@ -112,6 +112,12 @@ define( 'WP_DEBUG_LOG', !!getenv_docker('WP_DEBUG_LOG', '') );
 define( 'WP_DEBUG_DISPLAY', !!getenv_docker('WP_DEBUG_DISPLAY', '') );
 define( 'WP_DISABLE_FATAL_ERROR_HANDLER', !!getenv_docker('WP_DISABLE_FATAL_ERROR_HANDLER', '') );
 
+/**
+ * WordPress Multisite settings
+ */
+define('WP_ALLOW_MULTISITE', !!getenv_docker('WP_ALLOW_MULTISITE', ''));
+//Add the additional configutations from setup below.
+
 /* Add any custom values between this line and the "stop editing" line. */
 
 // If we're behind a proxy server and using HTTPS, we need to alert WordPress of that fact
