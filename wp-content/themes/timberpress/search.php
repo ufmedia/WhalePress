@@ -2,11 +2,8 @@
 /**
  * Search results page
  *
- * Methods for TimberHelper can be found in the /lib sub-directory
- *
- * @package  WordPress
- * @subpackage  Timber
- * @since   Timber 0.1
+ * @package TimberPress
+ * @since   TimberPress 1.0
  */
 
 $templates = array( 'search.twig', 'archive.twig', 'index.twig' );

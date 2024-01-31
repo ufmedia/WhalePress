@@ -4,6 +4,7 @@
  * This file contains the Init class.
  *
  * @package TimberPress
+ * @since   TimberPress 1.0
  */
 
 namespace TimberPressTheme;
@@ -36,10 +37,8 @@ class Init {
 	public function timberpress_enqueue_scripts(): void {
 		$theme = wp_get_theme();
 
-		wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap', null, null ); // Google Fonts.
-		wp_enqueue_script( 'jquery', null, null, null, true ); // jQuery.
-		wp_enqueue_style( 'timberpress-styles', $this->timberpress_asset( 'style-index.css' ), null, $theme->get( 'Version' ) ); // Theme styles.
-		wp_enqueue_script( 'timberpress-scripts', $this->timberpress_asset( 'index.js' ), array( 'jquery' ), $theme->get( 'Version' ), false ); // Theme scripts.
+		wp_enqueue_style( 'timberpress-styles', $this->timberpress_asset( 'style-index.css' ), __return_empty_array(), $theme->get( 'Version' ) ); // Theme styles.
+		wp_enqueue_script( 'timberpress-scripts', $this->timberpress_asset( 'index.js' ), __return_empty_array(), $theme->get( 'Version' ), false ); // Theme scripts.
 	}
 
 	/**

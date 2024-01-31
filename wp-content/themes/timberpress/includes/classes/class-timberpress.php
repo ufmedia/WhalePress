@@ -4,6 +4,7 @@
  * This file contains the Timber class.
  *
  * @package TimberPress
+ * @since   TimberPress 1.0
  */
 
 namespace TimberPressTheme;

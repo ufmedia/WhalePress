@@ -3,6 +3,7 @@
  * This file pulls in all the depancies for the theme.
  *
  * @package TimberPress
+ * @since   TimberPress 1.0
  */
 
 /**
