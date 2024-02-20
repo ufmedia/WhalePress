@@ -5,7 +5,8 @@
     "phpsab.standard": "WordPress",
     "phpsab.snifferArguments": [
         "--ignore=*/wp-admin/*,*/wp-includes/*"
-    ]
+    ],
+    "editor.formatOnSave": true,
 }
 
 // An example configuration for PHPCS and PHPCBF using the PHP CodeSniffer extension. Don't forget to update the paths above with yours.
