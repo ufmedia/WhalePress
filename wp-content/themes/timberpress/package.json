@@ -19,7 +19,9 @@
 		"plugin-zip": "wp-scripts plugin-zip",
 		"test:e2e": "wp-scripts test-e2e",
 		"test:unit": "wp-scripts test-unit-js",
-		"watch": "wp-scripts start watch --env devType=hosted"
+		"watch": "wp-scripts start watch --env devType=hosted",
+		"serve": "browser-sync start --proxy='http://localhost' --files='public/build/**/*.*, ./**/*.php, ./**/*.twig' --no-open",
+    		"start": "npm-run-all --parallel watch serve"
 	},
 	"author": "John Thompson",
 	"license": "ISC",
