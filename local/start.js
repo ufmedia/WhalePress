@@ -5,12 +5,11 @@ import fs from 'fs';
 console.clear();
 
 console.log(chalk.blue(`
-
         .
        ":"
      ___:____     |"\\/""|
    ,'        \`.    \\  /
-   |  O        \\___/  |
+   |  ${chalk.yellow('O')}        \\___/  |
  ~^~^~^~^~^~^~^~^~^~^~^~^~
  ------- ${chalk.yellow('DokPress')} --------
 `));

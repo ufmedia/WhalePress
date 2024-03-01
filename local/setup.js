@@ -7,13 +7,11 @@ import { execSync } from 'child_process';
 
 console.clear();
 
-console.log(chalk.blue(`
-
-        .
-       ":"
-     ___:____     |"\\/""|
+console.log(chalk.blue(` 
+       
+     ________     |"\\/""|
    ,'        \`.    \\  /
-   |  O        \\___/  |
+   |  ${chalk.blue('-')}        \\___/  |
  ~^~^~^~^~^~^~^~^~^~^~^~^~
  ------- ${chalk.yellow('DokPress')} --------
 `));
