@@ -1,0 +1,25 @@
+{% extends "page.twig" %}
+
+{% block hero %}
+	<section class="bg-white dark:bg-gray-900">
+		<div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+			<div class="mr-auto place-self-center lg:col-span-7">
+				<div class="prose lg:prose-lg prose-headings:text-black mb-4">
+					<h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+						Develop WordPress projects faster.
+					</h1>
+					<p class="text-lg mt-4 text-slate-600 max-w-xl">
+						DokPress is a hackable local development environment for WordPress that makes it easy to get started with modern development tools and best practices.
+					</p>
+				</div>
+				<a href="https://github.com/ufmedia/DokPress/wiki" class="inline-block px-7 py-3 bg-black text-white font-medium text-sm leading-snug rounded shadow-md hover:bg-amber-500 hover:shadow-lg focus:bg-amber-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Get Started</a>
+				<a href="https://github.com/ufmedia/DokPress/" class="inline-block px-7 py-3 bg-black text-white font-medium text-sm leading-snug rounded shadow-md hover:bg-amber-500 hover:shadow-lg focus:bg-amber-500 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">GitHub Repo</a>
+
+			</div>
+			<div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+				{% include 'svg/hero.twig' %}
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

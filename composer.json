@@ -1,5 +1,5 @@
 {
-    "name": "ufmedia/dockpress",
+    "name": "ufmedia/dokpress",
     "description": "A complete wordpress development environment.",
     "type": "project",
     "authors": [
@@ -18,8 +18,21 @@
         "wpackagist-plugin/classic-editor": "^1.6"
     },
     "config": {
+        "vendor-dir": "wp-content/vendor",
         "allow-plugins": {
-            "composer/installers": true
+            "composer/installers": true,
+            "gotoandplay/gravityforms-composer-installer": true,
+            "ffraenz/private-composer-installer": true
+        }
+    },
+    "extra": {
+        "installer-paths": {
+            "wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
         }
     }
 }

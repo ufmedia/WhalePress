@@ -1,0 +1,12 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<section class="bg-white dark:bg-gray-900">
+		<div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+			<div class="prose lg:prose-lg prose-headings:text-black mb-4">
+				<h1>{{post.title}}</h1>
+				<div class="">{{post.content}}</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
