@@ -1,8 +1,6 @@
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const { merge } = require( 'webpack-merge' );
 const path = require( 'path' );
-const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
-const glob = require('glob-all')
 
 module.exports = merge( defaultConfig, {
 	entry: {
@@ -20,16 +18,4 @@ module.exports = merge( defaultConfig, {
 			},
 		],
 	},
-	plugins: [
-		new PurgeCSSPlugin({
-			paths: glob.sync([
-			  path.join(__dirname, '**/*.php'),
-			  path.join(__dirname, '**/*.twig'),
-			  path.join(__dirname, '**/*.js'),
-			], { nodir: true }).filter(path => !path.includes('node_modules') && !path.includes('vendor')),
-			safelist: {
-			  standard: [/^bootstrap/], // Adjust based on your needs
-			},
-		  }),
-	],
 } );
