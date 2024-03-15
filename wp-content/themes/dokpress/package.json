@@ -37,6 +37,5 @@
 		"tailwindcss": "^3.1.8",
 		"webpack-merge": "^5.9.0",
 		"glob-all": "^3.3.1",
-		"purgecss-webpack-plugin": "^5.0.0",
 	}
 }
