@@ -1,0 +1,17 @@
+{
+  "name": "dokpress",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "setup": "cd ./local && node setup.js",
+    "start": "cd ./local && node start.js",
+    "stop": "docker compose down"
+  },
+  "author": "John Thompson",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "inquirer": "^9.2.15"
+  }
+}
