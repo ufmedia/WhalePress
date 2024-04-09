@@ -2,7 +2,6 @@ const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const { merge } = require( 'webpack-merge' );
 const path = require( 'path' );
 
-
 module.exports = merge( defaultConfig, {
 	entry: {
 		index: path.resolve( process.cwd(), 'public/src/js/', 'index.js' ),
