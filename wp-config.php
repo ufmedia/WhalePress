@@ -111,6 +111,7 @@ define( 'WP_DEBUG', !!getenv_docker('WORDPRESS_DEBUG', '') );
 define( 'WP_DEBUG_LOG', !!getenv_docker('WP_DEBUG_LOG', '') );
 define( 'WP_DEBUG_DISPLAY', !!getenv_docker('WP_DEBUG_DISPLAY', '') );
 define( 'WP_DISABLE_FATAL_ERROR_HANDLER', !!getenv_docker('WP_DISABLE_FATAL_ERROR_HANDLER', '') );
+define( 'WP_ENVIRONMENT_TYPE', getenv_docker('WP_ENVIRONMENT_TYPE', 'local') );
 
 /**
  * WordPress Multisite settings
