@@ -13,7 +13,7 @@ console.log(chalk.blue(`
    ,'        \`.    \\  /
    |  ${chalk.blue('-')}        \\___/  |
  ~^~^~^~^~^~^~^~^~^~^~^~^~
- ------- ${chalk.yellow('DokPress')} --------
+ ------- ${chalk.yellow('WhalePress')} --------
 `));
 
 // Function to get the directory name
