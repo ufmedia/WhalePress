@@ -11,7 +11,7 @@ console.log(chalk.blue(`
    ,'        \`.    \\  /
    |  ${chalk.yellow('O')}        \\___/  |
  ~^~^~^~^~^~^~^~^~^~^~^~^~
- ------- ${chalk.yellow('DokPress')} --------
+ ------- ${chalk.yellow('WhalePress')} --------
 `));
 
 console.log(chalk.black.bgGreen('Time to build something awesome...'));
