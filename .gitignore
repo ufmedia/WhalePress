@@ -1,52 +1,44 @@
-/*
-!.gitkeep
-!wp-content/
-!wp-content/plugins/
-!wp-content/themes/  
-!local/
-!local/uploads.ini
-local/var
-!docker-compose.yml
-!Readme.md
-!Dockerfile
-!wp-config.php
-!.gitignore
-!composer.json
-!composer.lock
-!package.json
-!package-lock.json
+# Ignore WordPress root files and directories
+/wp-admin/
+/wp-includes/
+/wp-content/*
+/wp-activate.php
+/wp-blog-header.php
+/wp-comments-post.php
+/wp-config-sample.php
+/wp-config-docker.php
+/wp-cron.php
+/wp-links-opml.php
+/wp-load.php
+/wp-login.php
+/wp-mail.php
+/wp-settings.php
+/wp-signup.php
+/wp-trackback.php
+/xmlrpc.php
+/index.php
+/.htaccess
+/LICENSE
+/license.txt
+/readme.html
 
+#WordPress Theme Exceptions
+!/wp-content/themes
+wp-content/themes/*
+!wp-content/themes/whalepress/
+
+#WordPress Plugin Exceptions
+!wp-content/plugins/
+#wp-content/plugins/*
+#!wp-content/plugins/example-plugin/
+
+
+#Additional files and directories
 .DS_Store
 .env
-!.env-example
-
-# Ignore all plugins except paid for or custom ones
-wp-content/plugins/*
-#!wp-content/plugins/plugin-name/
-
-
-#Ignore twenty* themes
-wp-content/themes/twenty*
-
-# Ignore local uploads
-wp-content/uploads/
-
-# Ignore local langauages
-wp-content/languages/
-
-# Ignore local upgrade
-wp-content/upgrade/
-
-# Ignore local debug
-wp-content/debug*
-
-# Ignore local object cache
-wp-content/db.php
-
-# Ignore local vendor folders
+.idea/
 /vendor/
 wp-content/vendor/
-
 phpinfo.php
 node_modules
-.vscode
+local/var
