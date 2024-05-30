@@ -147,7 +147,7 @@ async function main() {
     if (buildContainers) {
         try {
             console.log('Building Docker containers...');
-            execSync('docker-compose build', { stdio: 'inherit' });
+            execSync('docker compose build', { stdio: 'inherit' });
             console.log('Docker containers built successfully!');
         } catch (error) {
             console.error('Error building Docker containers:', error);
