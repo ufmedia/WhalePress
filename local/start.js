@@ -25,7 +25,7 @@ createEnvTable();
 //Start up docker compose -d
 console.log('Starting up Docker containers...');
 try {
-    execSync('docker-compose up -d', { stdio: 'inherit' });
+    execSync('docker compose up -d', { stdio: 'inherit' });
     console.log(chalk.green('Docker containers started successfully!'));
 } catch (error) {
     console.error(chalk.red('Error starting Docker containers:', error));
