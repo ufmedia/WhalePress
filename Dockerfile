@@ -42,21 +42,6 @@ RUN service apache2 restart
 # Install Composer.
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Install PHPUnit globally using Composer.
-RUN composer global require "phpunit/phpunit=9.*"
-# Add Composer's global bin directory to the system PATH.
-ENV PATH /root/.composer/vendor/bin:$PATH
-
-# Install Node.js.
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
-RUN apt -y install nodejs
-
-# Install libraries for Puppeteer.
-RUN apt -y install libx11-xcb1 libxcomposite1 libxcursor1 libxdamage1 libxi6 libxtst6 libnss3 libcups2 libxss1 libxrandr2 libasound2 libatk1.0-0 libgtk-3-0 libgbm1 libdrm2
-
-# Check if Chrome is already installed.
-RUN if ! command -v google-chrome; then npx puppeteer browsers install chrome; fi
-
 # Install nano.
 RUN apt -y install nano
 
@@ -65,9 +50,3 @@ RUN apt -y install zip
 
 # Install unzip.
 RUN apt -y install unzip
-
-# Install wget.
-RUN apt -y install wget
-
-#Install dotenv
-RUN composer global require vlucas/phpdotenv --dev
