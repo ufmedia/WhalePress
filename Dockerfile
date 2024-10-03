@@ -20,16 +20,7 @@ RUN apt -y install mariadb-client
 RUN apt -y install git
 
 # Install Xdebug.
-RUN cd /tmp && \
-    git clone https://github.com/xdebug/xdebug.git && \
-    cd xdebug && \
-    git checkout xdebug_3_2 && \
-    phpize && \
-    ./configure --enable-xdebug && \
-    make && \
-    make install && \
-    cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20210902 && \
-    rm -rf /tmp/xdebug
+RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 # Add your custom Xdebug configuration.
 COPY local/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
@@ -38,9 +29,6 @@ COPY local/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN docker-php-ext-enable xdebug
 
 RUN service apache2 restart
-
-# Install Composer.
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Install nano.
 RUN apt -y install nano

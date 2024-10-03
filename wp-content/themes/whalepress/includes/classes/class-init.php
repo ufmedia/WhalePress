@@ -6,7 +6,7 @@
  * @since   1.0.0
  */
 
-namespace DokPressTheme;
+namespace WhalePressTheme;
 
 /**
  * Init class.
@@ -16,8 +16,6 @@ namespace DokPressTheme;
  * @package DokPress
  */
 class Init {
-
-
 
 	/**
 	 * Construct

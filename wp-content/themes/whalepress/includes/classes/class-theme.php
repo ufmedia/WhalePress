@@ -7,7 +7,7 @@
  * @since   1.0.0
  */
 
-namespace DokPressTheme;
+namespace WhalePressTheme;
 
 use Timber\Site;
 use Timber;
@@ -17,7 +17,7 @@ use Timber;
  *
  * This class is used to initialize Timber (and Twig) along with the global context and custom functions.
  */
-class DokPress extends Site {
+class Theme extends Site {
 
 	/**
 	 * Construct
@@ -117,4 +117,4 @@ class DokPress extends Site {
 
 Timber\Timber::init();
 Timber::$dirname = array( 'templates', 'views' );
-new DokPress();
+new Theme();
