@@ -29,7 +29,7 @@ wp-content/themes/*
 
 #WordPress Plugin Exceptions
 !wp-content/plugins/
-#wp-content/plugins/*
+wp-content/plugins/*
 #!wp-content/plugins/example-plugin/
 
 
@@ -42,3 +42,6 @@ wp-content/vendor/
 phpinfo.php
 node_modules
 local/var
+cypress.env.json
+cypress/screenshots
+cypress/videos

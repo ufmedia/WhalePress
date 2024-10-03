@@ -11,6 +11,7 @@ describe("Create, View and Remove a Page", () => {
         Cypress.env("PORT") ? `:${Cypress.env("PORT")}` : ""
       }/wp-admin`
     );
+    cy.wait(2000);
     cy.get("#user_login").type(Cypress.env("WP_USERNAME"));
     cy.get("#user_pass").type(Cypress.env("WP_PASSWORD"));
     cy.get("#wp-submit").click();
@@ -22,6 +23,7 @@ describe("Create, View and Remove a Page", () => {
         Cypress.env("PORT") ? `:${Cypress.env("PORT")}` : ""
       }/wp-admin/post-new.php?post_type=page`
     ); // Navigate to new page editor
+    cy.wait(2000);
     cy.get("#title").type(pageTitle);
     cy.get("#publish").click(); // Publish the page
     // Confirm the page was published
@@ -34,6 +36,7 @@ describe("Create, View and Remove a Page", () => {
         Cypress.env("PORT") ? `:${Cypress.env("PORT")}` : ""
       }/${pageSlug}`
     ); // Visit the newly created page by slug
+    cy.wait(2000);
     cy.contains(pageTitle).should("be.visible");
   });
 
@@ -43,6 +46,7 @@ describe("Create, View and Remove a Page", () => {
         Cypress.env("PORT") ? `:${Cypress.env("PORT")}` : ""
       }/${pageSlug}`
     ); // Visit the newly created page by slug
+    cy.wait(2000);
     cy.get("#wp-admin-bar-edit a").click(); // Click the "Move to Trash" link
     cy.get("#delete-action a").click(); // Click the "Move to Trash" button
     cy.contains("1 page moved to the ").should("be.visible"); // Confirm the page was moved to the trash

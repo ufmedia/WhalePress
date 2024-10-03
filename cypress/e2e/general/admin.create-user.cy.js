@@ -10,6 +10,7 @@ describe("User management", () => {
         Cypress.env("PORT") ? `:${Cypress.env("PORT")}` : ""
       }/wp-admin`
     );
+    cy.wait(2000);
     cy.get("#user_login").type(Cypress.env("WP_USERNAME"));
     cy.get("#user_pass").type(Cypress.env("WP_PASSWORD"));
     cy.get("#wp-submit").click();
@@ -21,6 +22,7 @@ describe("User management", () => {
         Cypress.env("PORT") ? `:${Cypress.env("PORT")}` : ""
       }/wp-admin/user-new.php`
     ); // Navigate to new page editor
+    cy.wait(2000);
     cy.get("#user_login").type(userName);
     cy.get("#email").type(userName + "@test.com");
     cy.get("#user_login").type(userName);

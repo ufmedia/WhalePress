@@ -7,6 +7,9 @@ module.exports = {
 		'./**/*.{twig,php}',
 		//'./public/src/js/*.js',
 		'./safelist.txt',
+		'!./node_modules/**',
+		'!./vendor/**',
+		'!./public/build/**',
 	],
 	theme: {
 		extend: {},
