@@ -9,8 +9,8 @@
 		"watch": "concurrently \"webpack --watch --mode development\" \"browser-sync start --proxy 'http://localhost:8089' --files 'public/dist/css/*.css, public/dist/js/*.js, **/*.php, **/*.twig' --port 3002\"",
 		"lint:js": "eslint 'public/src/js/**/*.js'",
 		"lint:js:fix": "eslint 'public/src/js/**/*.js' --fix",
-		"lint:php": "phpcs --report-file=PHPCS-report.txt --ignore=*/vendor/*,tests,build --standard=WordPress *.php **/*.php **/**/*.php",
-		"lint:php:fix": "phpcbf --ignore=*/vendor/*,tests,build --standard=WordPress *.php **/*.php **/**/*.php",
+		"lint:php": "./includes/vendor/bin/phpcs --report-file=PHPCS-report.txt --ignore=*/vendor/*,tests,build,*/node_modules/* --extensions=php --standard=WordPress .",
+    	"lint:php:fix": "./includes/vendor/bin/phpcbf --ignore=*/vendor/*,tests,build,*/node_modules/* --extensions=php --standard=WordPress .",
 		"lint:css": "stylelint 'public/src/scss/**/*.scss'",
 		"lint:css:fix": "stylelint 'public/src/scss/**/*.scss' --fix"
 	},

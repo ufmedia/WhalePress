@@ -1,6 +1,6 @@
 {
-    "phpsab.executablePathCBF": "/home/[USER]/.config/composer/vendor/bin/phpcbf",
-    "phpsab.executablePathCS": "/home/[USER]/.config/composer/vendor/bin/phpcs",
+    "phpsab.executablePathCBF": "./wp-content/themes/whalepress/includes/vendor/bin/phpcbf",
+    "phpsab.executablePathCS": "./wp-content/themes/whalepress/includes/vendor/bin/phpcs",
     "phpsab.autoRulesetSearch": false,
     "phpsab.standard": "WordPress",
     "phpsab.snifferArguments": [

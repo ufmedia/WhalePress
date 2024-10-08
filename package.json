@@ -8,6 +8,7 @@
     "start": "cd ./local && node start.js",
     "stop": "docker compose down",
     "test": "npx cypress run",
+    "test:open": "npx cypress open",
     "prepare": "husky",
     "theme:build:assets": "cd ./wp-content/themes/whalepress && npm run build:assets",
     "theme:build": "cd ./wp-content/themes/whalepress && npm run build",

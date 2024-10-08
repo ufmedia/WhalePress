@@ -1,10 +1,15 @@
 {
 	"require": {
-		"timber/timber": "^2.0"
+		"timber/timber": "^2.1"
 	},
 	"config": {
 		"allow-plugins": {
-			"composer/installers": true
+			"composer/installers": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
 		}
+	},
+	"require-dev": {
+		"squizlabs/php_codesniffer": "*",
+		"wp-coding-standards/wpcs": "^3.1"
 	}
 }
