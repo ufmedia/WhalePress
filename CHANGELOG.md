@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/ufmedia/WhalePress/compare/v1.3.1...v1.3.2) (2024-10-10)
+
+
+### Bug Fixes
+
+* create pacakge.json version ([a682989](https://github.com/ufmedia/WhalePress/commit/a682989b71beab3365c752de403266aa557ee236))
+
 ## [1.3.1](https://github.com/ufmedia/WhalePress/compare/v1.3.0...v1.3.1) (2024-10-10)
 
 
