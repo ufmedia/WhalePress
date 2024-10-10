@@ -24,6 +24,10 @@ jobs:
       - name: Install theme dependencies
         run: npm --prefix wp-content/themes/whalepress install
 
+      - name: Install theme composer dependencies  
+        run: composer install -d wp-content/themes/whalepress/inclues
+        
+
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
