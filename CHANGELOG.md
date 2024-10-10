@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/ufmedia/WhalePress/compare/v1.1.0...v1.2.0) (2024-10-10)
+
+
+### Features
+
+* update linting workflow ([dac6b56](https://github.com/ufmedia/WhalePress/commit/dac6b568bec9f304084745ebda435e21ae40ad59))
+
 # [1.1.0](https://github.com/ufmedia/WhalePress/compare/v1.0.0...v1.1.0) (2024-10-10)
 
 
