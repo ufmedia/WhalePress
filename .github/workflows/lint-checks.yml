@@ -3,7 +3,6 @@ name: Theme Lint Checks
 on:
   pull_request:
     branches:
-      - main
       - preproduction
       - development
 
@@ -49,20 +48,20 @@ jobs:
 
       - name: Navigate to theme directory & install NPM
         run: |
-          cd wp-content/themes/c19inquiry-hearings
+          cd wp-content/themes/whalepress
           npm install
 
       - name: Run JavaScript lint
         run: |
-          cd wp-content/themes/c19inquiry-hearings
+          cd wp-content/themes/whalepress
           npm run lint:js
 
       - name: Run PHP lint
         run: |
-          cd wp-content/themes/c19inquiry-hearings
+          cd wp-content/themes/whalepress
           phpcs --standard=WordPress --extensions=php --ignore=**/vendor/**,**/node_modules/**,**/build/**,tests .
 
-      #- name: Run CSS lint
-      #  run: |
-      #    cd wp-content/themes/c19inquiry-hearings
-      #    npm run lint:css
+      - name: Run CSS lint
+        run: |
+          cd wp-content/themes/whalepress
+          npm run lint:css
