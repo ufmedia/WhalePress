@@ -1,8 +1,13 @@
 {
-  "name": "dokpress",
+  "name": "whalepress",
+  "projectName": "whalepress",
+  "themeName": "whalepress",
   "version": "1.0.0",
   "description": "",
   "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "setup": "cd ./local && node setup.js",
     "start": "cd ./local && node start.js",
@@ -10,28 +15,27 @@
     "test": "npx cypress run",
     "test:open": "npx cypress open",
     "prepare": "husky",
-    "theme:build:assets": "cd ./wp-content/themes/whalepress && npm run build:assets",
-    "theme:build": "cd ./wp-content/themes/whalepress && npm run build",
-    "theme:dev": "cd ./wp-content/themes/whalepress && npm run dev",
-    "theme:watch": "cd ./wp-content/themes/whalepress && npm run watch",
-    "theme:lint:js": "cd ./wp-content/themes/whalepress && npm run lint:js",
-    "theme:lint:js:fix": "cd ./wp-content/themes/whalepress && npm run lint:js:fix",
-    "theme:lint:php": "cd ./wp-content/themes/whalepress && npm run lint:php",
-    "theme:lint:php:fix": "cd ./wp-content/themes/whalepress && npm run lint:php:fix",
-    "theme:lint:css": "cd ./wp-content/themes/whalepress && npm run lint:css",
-    "theme:lint:css:fix": "cd ./wp-content/themes/whalepress && npm run lint:css:fix"
+    "update:theme:composer": "cd ./wp-content/themes/whalepress/includes && composer update",
+    "update:theme:npm": "cd ./wp-content/themes/whalepress/ && npm update",
+    "update:plugins:composer": "composer update",
+    "update:plugins:local": "docker exec -it whalepress_wordpress wp plugin update --all --allow-root",
+    "update:npm": "npm update",
+    "update:all": "npm run update:theme:composer && npm run update:theme:npm && npm run update:plugins:composer && npm run update:plugins:local && npm run update:npm"
   },
   "author": "John Thompson",
   "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "chalk": "^5.3.0",
     "commitlint": "^19.5.0",
     "cypress": "^13.15.0",
     "dockerode": "^4.0.2",
     "husky": "^9.1.6",
     "inquirer": "^11.1.0",
-    "random-words": "^2.0.1"
+    "random-words": "^2.0.1",
+    "semantic-release": "^24.1.2"
   }
 }

@@ -1,5 +1,5 @@
 {
-	"name": "wptailpack",
+	"name": "whalepress-theme",
 	"version": "2.0.0",
 	"description": "NPM Scripts for the WhalePress theme.",
 	"scripts": {

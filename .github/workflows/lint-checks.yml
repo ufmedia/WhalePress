@@ -1,0 +1,68 @@
+name: Theme Lint Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+      - preproduction
+      - development
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2.9'
+
+      - name: Install Composer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y unzip
+          curl -sS https://getcomposer.org/installer | php
+          sudo mv composer.phar /usr/local/bin/composer
+          
+      - name: Allow Composer Plugin
+        run: |
+          composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+
+      - name: Install PHP_CodeSniffer and WordPress standards 
+        run: |
+          composer global require "squizlabs/php_codesniffer=*"
+          composer global require --dev wp-coding-standards/wpcs:"^3.0"
+          export PATH=$PATH:~/.composer/vendor/bin
+
+      - name: Debug Composer Packages
+        run: |
+          composer global show
+          phpcs -i
+
+      - name: Navigate to theme directory & install NPM
+        run: |
+          cd wp-content/themes/c19inquiry-hearings
+          npm install
+
+      - name: Run JavaScript lint
+        run: |
+          cd wp-content/themes/c19inquiry-hearings
+          npm run lint:js
+
+      - name: Run PHP lint
+        run: |
+          cd wp-content/themes/c19inquiry-hearings
+          phpcs --standard=WordPress --extensions=php --ignore=**/vendor/**,**/node_modules/**,**/build/**,tests .
+
+      #- name: Run CSS lint
+      #  run: |
+      #    cd wp-content/themes/c19inquiry-hearings
+      #    npm run lint:css
