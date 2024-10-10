@@ -25,7 +25,7 @@ jobs:
         run: npm --prefix wp-content/themes/whalepress install
 
       - name: Install theme composer dependencies  
-        run: composer install -d ./wp-content/themes/whalepress/inclues
+        run: composer install -d ./wp-content/themes/whalepress/includes
         
 
       - name: Run semantic-release
