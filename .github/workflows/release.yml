@@ -19,14 +19,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm ci
-
-      - name: Install theme dependencies
-        run: npm --prefix wp-content/themes/whalepress install
-
-      - name: Install theme composer dependencies  
-        run: composer install -d ./wp-content/themes/whalepress/includes
-        
+        run: npm ci        
 
       - name: Run semantic-release
         env:
