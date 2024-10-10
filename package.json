@@ -15,6 +15,8 @@
     "test": "npx cypress run",
     "test:open": "npx cypress open",
     "prepare": "husky",
+    "version": "semantic-release",
+    "version:theme": "cd ./local && node update-version.js",
     "update:theme:composer": "cd ./wp-content/themes/whalepress/includes && composer update",
     "update:theme:npm": "cd ./wp-content/themes/whalepress/ && npm update",
     "update:plugins:composer": "composer update",

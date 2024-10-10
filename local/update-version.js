@@ -20,23 +20,27 @@ try {
 
   // Read the style.css file
   let styleCssContent = await fs.readFile(styleCssPath, "utf8");
+  console.log("Original style.css content:", styleCssContent);
 
   // Find and replace the version in style.css
   const versionRegex = /Version:\s*(\d+\.\d+\.\d+)/;
-  styleCssContent = styleCssContent.replace(
-    versionRegex,
-    `Version: ${newVersion}`
-  );
+  if (versionRegex.test(styleCssContent)) {
+    styleCssContent = styleCssContent.replace(
+      versionRegex,
+      `Version: ${newVersion}`
+    );
 
-  // Write the updated content back to style.css
-  await fs.writeFile(styleCssPath, styleCssContent);
+    // Write the updated content back to style.css
+    await fs.writeFile(styleCssPath, styleCssContent);
 
-  //Prove that the version has been updated by outputting the file to the console
-  styleCssContent = await fs.readFile(styleCssPath, "utf8");
-  console.log(styleCssContent);
+    // Re-read the file to confirm the change
+    const updatedStyleCssContent = await fs.readFile(styleCssPath, "utf8");
+    console.log("Updated style.css content:", updatedStyleCssContent);
 
-
-  console.log(`Updated style.css to version ${newVersion}`);
+    console.log(`Updated style.css to version ${newVersion}`);
+  } else {
+    console.error("Version string not found in style.css");
+  }
 } catch (error) {
   console.error("Error updating version:", error);
 }
