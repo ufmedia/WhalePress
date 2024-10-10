@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/ufmedia/WhalePress/compare/v1.2.0...v1.3.0) (2024-10-10)
+
+
+### Features
+
+* version control update ([4b4c707](https://github.com/ufmedia/WhalePress/commit/4b4c70738a6a5d1440990b44f18be91d1f04f753))
+
 # [1.2.0](https://github.com/ufmedia/WhalePress/compare/v1.1.0...v1.2.0) (2024-10-10)
 
 
