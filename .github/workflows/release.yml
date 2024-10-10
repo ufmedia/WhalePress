@@ -40,7 +40,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git resotore wp-content/themes/whalepress/package-lock.json
+          git restore wp-content/themes/whalepress/package-lock.json
           git add wp-content/themes/whalepress/style.css
           git commit -m "chore: update theme version in style.css to match package.json"
           git push
