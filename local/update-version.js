@@ -31,6 +31,11 @@ try {
   // Write the updated content back to style.css
   await fs.writeFile(styleCssPath, styleCssContent);
 
+  //Prove that the version has been updated by outputting the file to the console
+  styleCssContent = await fs.readFile(styleCssPath, "utf8");
+  console.log(styleCssContent);
+
+
   console.log(`Updated style.css to version ${newVersion}`);
 } catch (error) {
   console.error("Error updating version:", error);
