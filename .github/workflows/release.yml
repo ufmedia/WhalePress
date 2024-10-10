@@ -1,9 +1,12 @@
 name: Release
 
 on:
+  pull_request:
+    branches:
+      - preproduction
   push:
     branches:
-      - main
+      - preproduction
 
 jobs:
   release:
