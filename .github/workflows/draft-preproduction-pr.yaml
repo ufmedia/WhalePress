@@ -5,10 +5,10 @@ on:
     types: [opened]
     branches:
       - development
+
   push:
     branches:
-      - feature/Another-example-branch
-    
+      - <your-feature-branch-name>  # Replace with the branch you're merging into development
 
 jobs:
   create-draft-pr:
@@ -34,21 +34,21 @@ jobs:
 
       - name: Fetch existing draft PR description
         id: fetch-description
-        if: ${{ env.existing_prs != '' }}  # Correct way to access env variable
+        if: ${{ env.existing_prs != '' }}  # Only if an existing PR is found
         run: |
           pr_number=$(echo $existing_prs | jq -r '.number')
           description=$(gh pr view $pr_number --json body --jq '.body')
           echo "description=$description" >> $GITHUB_ENV
 
       - name: Create new draft PR
-        if: ${{ env.existing_prs == '' }}  # Correct condition syntax
+        if: ${{ env.existing_prs == '' }}  # Only run if no existing PR is found
         run: |
           # Create a new draft PR from development to preproduction using markdown formatting
           new_pr=$(gh pr create --base preproduction --head development --draft --title "Merge development into preproduction" --body "## PRs going into development:\n\n- [${{ github.event.pull_request.title }}](https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }})\n")
           echo "new_pr_number=$(echo $new_pr | grep -o '#[0-9]*' | sed 's/#//')" >> $GITHUB_ENV
 
       - name: Append to draft PR description (no duplicates)
-        if: ${{ env.existing_prs != '' && env.description != '' }}  # Correct condition syntax
+        if: ${{ env.existing_prs != '' && env.description != '' }}  # Only if an existing PR is found
         run: |
           # Prepare the new PR link and title with proper markdown formatting
           new_entry="- [${{ github.event.pull_request.title }}](https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }})"
@@ -63,4 +63,4 @@ jobs:
 
       - name: Output result
         run: |
-          echo "Existing
+          echo "Existing PRs: $existing_prs"
