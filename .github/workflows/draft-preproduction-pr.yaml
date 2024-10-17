@@ -5,6 +5,10 @@ on:
     types: [opened]
     branches:
       - development
+  push:
+    branches:
+      - feature/Another-example-branch
+    
 
 jobs:
   create-draft-pr:
