@@ -8,7 +8,7 @@ on:
 
   push:
     branches:
-      - <your-feature-branch-name>  # Replace with the branch you're merging into development
+      - feature/Another-example-branch
 
 jobs:
   create-draft-pr:
