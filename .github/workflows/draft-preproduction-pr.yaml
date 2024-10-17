@@ -9,6 +9,9 @@ on:
 jobs:
   create-draft-pr:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the GitHub-provided token for authentication
+
     steps:
       - name: Check out the repository
         uses: actions/checkout@v3
@@ -16,7 +19,7 @@ jobs:
       - name: Set up Node.js (if your repo needs Node)
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '20'
 
       - name: Fetch existing PRs
         id: fetch-prs
