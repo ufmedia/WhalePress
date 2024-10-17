@@ -2,7 +2,7 @@
 /**
  * This file contains the Init class.
  *
- * @package DokPress
+ * @package WhalePress
  * @since   1.0.0
  */
 
@@ -13,7 +13,7 @@ namespace WhalePressTheme;
  *
  * This class is used to initialize the theme. For example, it is used to enqueue scripts and styles.
  *
- * @package DokPress
+ * @package WhalePress
  */
 class Init {
 

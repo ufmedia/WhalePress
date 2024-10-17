@@ -2,7 +2,7 @@
 /**
  * The Template for displaying all single posts
  *
- * @package DokPress
+ * @package WhalePress
  * @since    1.0.0
  */
 

@@ -2,7 +2,7 @@
 /**
  * Search results page
  *
- * @package DokPress
+ * @package WhalePress
  * @since   1.0.0
  */
 

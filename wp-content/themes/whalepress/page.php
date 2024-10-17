@@ -14,7 +14,7 @@
  * /mytheme/page-mypage.php
  * (in which case you'll want to duplicate this file and save to the above path)
  *
- * @package DokPress
+ * @package WhalePress
  * @since    1.0.0
  */
 

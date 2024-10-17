@@ -2,7 +2,7 @@
 /**
  * This file pulls in all the depancies for the theme.
  *
- * @package DokPress
+ * @package WhalePress
  * @since   1.0.0
  */
 

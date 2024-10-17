@@ -6,7 +6,7 @@
  * If you're not using a plugin that requries this behavior (ones that do include Events Calendar Pro and
  * WooCommerce) you can delete this file and footer.php
  *
- * @package DokPress
+ * @package WhalePress
  * @since   1.0.0
  */
 

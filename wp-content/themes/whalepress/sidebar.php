@@ -2,7 +2,7 @@
 /**
  * The Template for the sidebar containing the main widget area
  *
- * @package DokPress
+ * @package WhalePress
  * @since   1.0.0
  */
 

@@ -3,7 +3,7 @@
  *
  * This file contains the Timber class.
  *
- * @package DokPress
+ * @package WhalePress
  * @since   1.0.0
  */
 
