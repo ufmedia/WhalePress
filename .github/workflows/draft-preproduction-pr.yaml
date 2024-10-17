@@ -20,17 +20,11 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js (if your repo needs Node)
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
       - name: Fetch existing PRs
         id: fetch-prs
         run: |
-          # Fetch open PRs from development to preproduction
-          existing_prs=$(gh pr list --base preproduction --head development --state all --json number,state --jq '.[] | select(.state == "open" or .state == "draft")')
-          echo "existing_prs=$existing_prs" >> $GITHUB_ENV
+          # Fetch open PRs from development to preproduction, including draft PRs
+          existing_prs=$(gh pr list --base preproduction --head development --state open --json number,isDraft --jq '.[] | select(.isDraft == true or .number != null)')
           if [[ -z "$existing_prs" ]]; then
             echo "No existing PR found from development to preproduction."
           else
