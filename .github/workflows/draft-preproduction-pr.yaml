@@ -1,0 +1,59 @@
+name: Create Draft PR to Preproduction
+
+on:
+  pull_request:
+    types: [opened]
+    branches:
+      - development
+
+jobs:
+  create-draft-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js (if your repo needs Node)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Fetch existing PRs
+        id: fetch-prs
+        run: |
+          # Fetch open PRs from development to preproduction
+          existing_prs=$(gh pr list --base preproduction --head development --json number,state --jq '.[] | select(.state == "open" or .state == "draft")')
+          echo "existing_prs=$existing_prs" >> $GITHUB_ENV
+
+      - name: Fetch existing draft PR description
+        id: fetch-description
+        if: env.existing_prs != ''
+        run: |
+          pr_number=$(echo $existing_prs | jq -r '.number')
+          description=$(gh pr view $pr_number --json body --jq '.body')
+          echo "description=$description" >> $GITHUB_ENV
+
+      - name: Create new draft PR
+        if: env.existing_prs == ''
+        run: |
+          # Create a new draft PR from development to preproduction
+          new_pr=$(gh pr create --base preproduction --head development --draft --title "Merge development into preproduction" --body "## PRs going into development:\n- [${{ github.event.pull_request.title }}](https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }})")
+          echo "new_pr_number=$(echo $new_pr | grep -o '#[0-9]*' | sed 's/#//')" >> $GITHUB_ENV
+
+      - name: Append to draft PR description (no duplicates)
+        if: env.existing_prs != '' && env.description != ''
+        run: |
+          # Prepare the new PR link and title
+          new_entry="- [${{ github.event.pull_request.title }}](https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }})"
+          
+          # Check if the PR entry is already in the description
+          if echo "$description" | grep -qF "$new_entry"; then
+            echo "PR entry already exists, skipping append."
+          else
+            pr_number=$(echo $existing_prs | jq -r '.number')
+            gh pr edit $pr_number --add-body "\n$new_entry"
+          fi
+
+      - name: Output result
+        run: |
+          echo "Existing PRs: $existing_prs"

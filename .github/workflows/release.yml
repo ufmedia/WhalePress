@@ -1,9 +1,9 @@
-name: Release
+name: Create Release
 
 on:
   push:
     branches:
-      - preproduction
+      - main
 
 jobs:
   release:
@@ -19,33 +19,9 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm ci
-
-      - name: Install theme dependencies
-        run: npm --prefix wp-content/themes/whalepress install
-
-      - name: Install theme composer dependencies  
-        run: composer install -d ./wp-content/themes/whalepress/includes
-        
+        run: npm ci        
 
       - name: Run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
-
-      - name: Run version update script
-        run: node ./local/update-version.js
-
-      - name: Commit updated style.css
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git restore wp-content/themes/whalepress/package-lock.json
-          git add wp-content/themes/whalepress/style.css
-
-          if git diff --staged --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "chore: update theme version in style.css to match package.json"
-            git push
-          fi

@@ -200,7 +200,7 @@ async function main() {
   if (installComposer) {
     try {
       console.log("Installing composer dependencies...");
-      execSync("composer install --no-dev", {
+      execSync("composer update --no-dev", {
         stdio: "inherit",
         cwd: path.join(getDirname(import.meta.url), ".."),
       });
@@ -223,7 +223,7 @@ async function main() {
         console.error("Error: THEME_NAME not found in .env file.");
         process.exit(1);
       }
-      execSync("composer install", {
+      execSync("composer update", {
         stdio: "inherit",
         cwd: path.join(
           getDirname(import.meta.url),
