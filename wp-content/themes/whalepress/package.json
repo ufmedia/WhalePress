@@ -2,6 +2,9 @@
 	"name": "whalepress-theme",
 	"version": "2.0.0",
 	"description": "NPM Scripts for the WhalePress theme.",
+	"engines": {
+		"node": ">=22.0.0"
+	},
 	"scripts": {
 		"build:assets": "webpack --mode production",
 		"build": "npm run lint:js:fix && npm run lint:css:fix && npm run build:assets",

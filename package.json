@@ -6,7 +6,7 @@
   "description": "",
   "type": "module",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.0.0"
   },
   "scripts": {
     "setup": "cd ./local && node setup.js",
