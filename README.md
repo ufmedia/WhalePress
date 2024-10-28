@@ -1,4 +1,4 @@
-![GitHub contributors](https://img.shields.io/github/contributors-anon/ufmedia/dockpress) ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/ufmedia/dockpress)
+[![Create Release](https://github.com/ufmedia/WhalePress/actions/workflows/release.yml/badge.svg)](https://github.com/ufmedia/WhalePress/actions/workflows/release.yml) [![Theme Lint Checks](https://github.com/ufmedia/WhalePress/actions/workflows/lint-checks.yml/badge.svg)](https://github.com/ufmedia/WhalePress/actions/workflows/lint-checks.yml) ![GitHub contributors](https://img.shields.io/github/contributors-anon/ufmedia/dockpress) ![GitHub last commit (by committer)](https://img.shields.io/github/last-commit/ufmedia/dockpress)
 
 <img src="https://github.com/ufmedia/dockpress/blob/main/local/dockpress.png" align="center" height="332" width="400" >
 
