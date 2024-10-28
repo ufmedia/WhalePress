@@ -6,7 +6,7 @@
 
 WhalePress is a complete Docker Compose local development environment tailored for WordPress.
 
-To learn more and get started, head over to the project [Wiki](https://github.com/ufmedia/dockpress/wiki).
+Head over to the project [Wiki](https://github.com/ufmedia/dockpress/wiki) to learn more and get started.
 
 ## TL;DR
 
