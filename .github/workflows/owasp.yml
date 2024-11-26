@@ -16,7 +16,7 @@ jobs:
       - name: Run OWASP ZAP Scan
         run: |
           echo "Starting OWASP ZAP scan..."
-          docker run --rm -v $(pwd):/zap/wrk:rw owasp/zap2docker-stable zap-baseline.py \
+          docker run --rm -v $(pwd):/zap/wrk:rw zaproxy/zap-stable zap-baseline.py \
             -t https://www.security.gov.uk/ \
             -J zap-report.json
 
