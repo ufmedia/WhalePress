@@ -1,23 +1,22 @@
 name: OWASPZAP Basline
 on:
   schedule:
-    - cron: "0 0 * * SAT"
+    # Every 15 minutes
+    - cron: "*/15 * * * *"
   push:
-    branches: ["main"]
-  pull_request:
     branches: ["main"]
   workflow_dispatch:
     inputs:
       target:
         description: "Choose the target URL for the OWASP ZAP scan"
         required: true
-        default: "https://www.security.gov.uk/"
+        default: "https://whalepress.org/"
         type: choice
         options:
-          - "https://www.security.gov.uk/"
           - "https://whalepress.org/"
+          - "https://beta-dev.security.gov.uk/"
       custom-header:
-        description: "Custom header value for requests"
+        description: "ZAP_AUTH_HEADER_VALUE"
         required: true
         default: ""
 
@@ -25,6 +24,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    # Environment variables
     env:
       ZAP_AUTH_HEADER_VALUE: ${{ github.event.inputs.custom-header }}
 
