@@ -15,7 +15,7 @@ on:
         type: choice
         options:
           - "https://www.security.gov.uk/"
-          - "https://beta-dev.security.gov.uk/"
+          - "https://whalepress.org/"
       custom-header:
         description: "Custom header value for requests"
         required: true
