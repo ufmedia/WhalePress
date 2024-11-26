@@ -1,76 +1,26 @@
-name: OWASP ZAP Scan
-
+name: OWASPZAP Basline
 on:
+  schedule:
+    - cron: '0 0 * * SAT'
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
   workflow_dispatch:
-
 jobs:
-  zap-scan:
+  build:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checkout the repository (optional if your scan does not need repo files)
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      # Run OWASP ZAP Scan and output results in JSON format
-      - name: Run OWASP ZAP Scan
-        run: |
-          echo "Starting OWASP ZAP scan..."
-          docker run --rm -v $(pwd):/zap/wrk:rw zaproxy/zap-stable zap-baseline.py \
-            -t https://www.security.gov.uk/ \
-            -J zap-report.json
-
-      # Parse and report findings as GitHub issues
-      - name: Report Issues to GitHub
-        uses: actions/github-script@v6
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      
+      - name: OWASP ZAP Baseline Scan
+        # You may pin to the exact commit or the version.
+       
+        uses: zaproxy/action-baseline@v0.14.0
         with:
-          script: |
-            const fs = require('fs');
-            const reportPath = './zap-report.json';
-
-            if (!fs.existsSync(reportPath)) {
-              core.setFailed("ZAP report not found!");
-              return;
-            }
-
-            const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
-            const issues = report.site[0]?.alerts || [];
-
-            if (issues.length === 0) {
-              console.log("No issues found.");
-              return;
-            }
-
-            // Define accepted risk levels
-            const acceptedRisks = ["Low", "Medium", "High"];
-
-            for (const issue of issues) {
-              if (!acceptedRisks.includes(issue.riskdesc)) {
-                console.log(`Skipping issue with risk level: ${issue.riskdesc}`);
-                continue;
-              }
-
-              const title = `OWASP ZAP Alert: ${issue.alert}`;
-              const body = `
-              **Description**: ${issue.description}
-              **Risk Level**: ${issue.riskdesc}
-              **Confidence**: ${issue.confidencedesc}
-              **Instances**: 
-              ${issue.instances.map(i => `- [${i.uri}](${i.uri})`).join('\n')}
-              
-              **Solution**: ${issue.solution}
-              **Reference**: ${issue.reference || "N/A"}
-              `;
-
-              try {
-                github.rest.issues.create({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  title,
-                  body,
-                  labels: ['security', 'OWASP ZAP'],
-                });
-              } catch (error) {
-                console.error(`Failed to create issue for alert ${issue.alert}:`, error.message);
-              }
-            }
+          # Target URL
+          target: "https://www.security.gov.uk/"
