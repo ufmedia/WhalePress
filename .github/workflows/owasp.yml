@@ -52,14 +52,14 @@ jobs:
 
               const title = `OWASP ZAP Alert: ${issue.alert}`;
               const body = `
-**Description**: ${issue.description}
-**Risk Level**: ${issue.riskdesc}
-**Confidence**: ${issue.confidencedesc}
-**Instances**: 
-${issue.instances.map(i => `- [${i.uri}](${i.uri})`).join('\n')}
-
-**Solution**: ${issue.solution}
-**Reference**: ${issue.reference || "N/A"}
+              **Description**: ${issue.description}
+              **Risk Level**: ${issue.riskdesc}
+              **Confidence**: ${issue.confidencedesc}
+              **Instances**: 
+              ${issue.instances.map(i => `- [${i.uri}](${i.uri})`).join('\n')}
+              
+              **Solution**: ${issue.solution}
+              **Reference**: ${issue.reference || "N/A"}
               `;
 
               try {
