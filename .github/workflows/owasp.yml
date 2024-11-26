@@ -1,26 +1,47 @@
 name: OWASPZAP Basline
 on:
   schedule:
-    - cron: '0 0 * * SAT'
+    - cron: "0 0 * * SAT"
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
+    inputs:
+      target:
+        description: "Choose the target URL for the OWASP ZAP scan"
+        required: true
+        default: "https://www.security.gov.uk/"
+        type: choice
+        options:
+          - "https://www.security.gov.uk/"
+          - "https://beta-dev.security.gov.uk/"
+      custom-header:
+        description: "Custom header value for requests"
+        required: true
+        default: ""
+
 jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    env:
+      ZAP_AUTH_HEADER_VALUE: ${{ github.event.inputs.custom-header }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      
+
+      # Add a delay of 30 minutes for push and pull_request events only giving time for the application to be deployed
+      - name: Wait for 30 minutes
+        if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
+        run: sleep 1800
+
       - name: OWASP ZAP Baseline Scan
         # You may pin to the exact commit or the version.
-       
+
         uses: zaproxy/action-baseline@v0.14.0
         with:
           # Target URL
-          target: "https://www.security.gov.uk/"
+          target: ${{ github.event.inputs.target }}
