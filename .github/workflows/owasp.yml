@@ -27,6 +27,7 @@ jobs:
     # Environment variables
     env:
       ZAP_AUTH_HEADER_VALUE: ${{ github.event.inputs.custom-header }}
+      TARGET_URL: ${{ github.event.inputs.target || 'https://whalepress.org/' }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -44,4 +45,4 @@ jobs:
         uses: zaproxy/action-baseline@v0.14.0
         with:
           # Target URL
-          target: ${{ github.event.inputs.target }}
+          target: ${{ env.TARGET_URL }}
