@@ -1,0 +1,76 @@
+name: OWASP ZAP Scan with Issues
+
+on:
+  workflow_dispatch:
+
+jobs:
+  zap-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository (optional if your scan does not need repo files)
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Run OWASP ZAP Scan and output results in JSON format
+      - name: Run OWASP ZAP Scan
+        run: |
+          echo "Starting OWASP ZAP scan..."
+          docker run --rm -v $(pwd):/zap/wrk:rw owasp/zap2docker-stable zap-baseline.py \
+            -t http://example.com \
+            -J zap-report.json
+
+      # Parse and report findings as GitHub issues
+      - name: Report Issues to GitHub
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const reportPath = './zap-report.json';
+
+            if (!fs.existsSync(reportPath)) {
+              core.setFailed("ZAP report not found!");
+              return;
+            }
+
+            const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+            const issues = report.site[0]?.alerts || [];
+
+            if (issues.length === 0) {
+              console.log("No issues found.");
+              return;
+            }
+
+            // Define accepted risk levels
+            const acceptedRisks = ["Low", "Medium", "High"];
+
+            for (const issue of issues) {
+              if (!acceptedRisks.includes(issue.riskdesc)) {
+                console.log(`Skipping issue with risk level: ${issue.riskdesc}`);
+                continue;
+              }
+
+              const title = `OWASP ZAP Alert: ${issue.alert}`;
+              const body = `
+**Description**: ${issue.description}
+**Risk Level**: ${issue.riskdesc}
+**Confidence**: ${issue.confidencedesc}
+**Instances**: 
+${issue.instances.map(i => `- [${i.uri}](${i.uri})`).join('\n')}
+
+**Solution**: ${issue.solution}
+**Reference**: ${issue.reference || "N/A"}
+              `;
+
+              try {
+                github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title,
+                  body,
+                  labels: ['security', 'OWASP ZAP'],
+                });
+              } catch (error) {
+                console.error(`Failed to create issue for alert ${issue.alert}:`, error.message);
+              }
+            }
