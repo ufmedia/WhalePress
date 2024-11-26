@@ -1,8 +1,8 @@
 name: OWASPZAP Basline
 on:
-  schedule:
+  #schedule:
     # Every 15 minutes
-    - cron: "*/15 * * * *"
+   # - cron: "*/15 * * * *"
   push:
     branches: ["main"]
   workflow_dispatch:
@@ -14,7 +14,6 @@ on:
         type: choice
         options:
           - "https://whalepress.org/"
-          - "https://beta-dev.security.gov.uk/"
       custom-header:
         description: "ZAP_AUTH_HEADER_VALUE"
         required: true
