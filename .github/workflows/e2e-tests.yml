@@ -18,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+        
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -33,6 +34,7 @@ jobs:
         run: npm install
 
       - name: Generate cypress.env.json
+        working-directory: /home/runner/work/WhalePress/WhalePress
         run: |
           # Define host URLs for different environments
           if [ "${{ github.event.inputs.environment }}" = "production" ]; then
@@ -50,4 +52,5 @@ jobs:
           }' > cypress.env.json
 
       - name: Run Cypress tests
+        working-directory: /home/runner/work/WhalePress/WhalePress
         run: npm run test:frontend
