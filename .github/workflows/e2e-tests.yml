@@ -1,0 +1,53 @@
+name: Run Cypress Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Select the environment for testing"
+        required: true
+        default: "production"
+        type: choice
+        options:
+          - "production"
+          - "preproduction"
+          - "development"
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+
+      - name: Set TERM variable
+        run: echo "TERM=xterm-256color" >> $GITHUB_ENV
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate cypress.env.json
+        run: |
+          # Define host URLs for different environments
+          if [ "${{ github.event.inputs.environment }}" = "production" ]; then
+            HOST="https://whalepress.org/"
+          elif [ "${{ github.event.inputs.environment }}" = "preproduction" ]; then
+            HOST="https://preproduction.whalepress.org/"
+          elif [ "${{ github.event.inputs.environment }}" = "development" ]; then
+            HOST="https://development.whalepress.org/"
+          fi
+
+          # Write the cypress.env.json file with the appropriate HOST
+          echo '{
+            "HOST": "'$HOST'",
+            "PORT": 80,
+          }' > cypress.env.json
+
+      - name: Run Cypress tests
+        run: npm run test:frontend
