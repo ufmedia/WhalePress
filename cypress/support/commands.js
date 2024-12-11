@@ -29,7 +29,7 @@ Cypress.Commands.add("visitHost", (path = "") => {
     const port = Cypress.env("PORT");
   
     const url =
-      port && port !== "80" ? `${host}:${port}${path}` : `${host}${path}`;
+      port && port !== 80 ? `${host}:${port}${path}` : `${host}${path}`;
     cy.visit(url);
   });
   

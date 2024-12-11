@@ -38,11 +38,11 @@ jobs:
         run: |
           # Define host URLs for different environments
           if [ "${{ github.event.inputs.environment }}" = "production" ]; then
-            HOST="https://whalepress.org/"
+            HOST="https://whalepress.org"
           elif [ "${{ github.event.inputs.environment }}" = "preproduction" ]; then
-            HOST="https://preproduction.whalepress.org/"
+            HOST="https://preproduction.whalepress.org"
           elif [ "${{ github.event.inputs.environment }}" = "development" ]; then
-            HOST="https://development.whalepress.org/"
+            HOST="https://development.whalepress.org"
           fi
 
           # Write the cypress.env.json file with the appropriate HOST
