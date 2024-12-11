@@ -48,7 +48,7 @@ jobs:
           # Write the cypress.env.json file with the appropriate HOST
           echo '{
             "HOST": "'$HOST'",
-            "PORT": 80,
+            "PORT": 80
           }' > cypress.env.json
 
       - name: Run Cypress tests
