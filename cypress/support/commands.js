@@ -23,3 +23,20 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("visitHost", (path = "") => {
+    const host = Cypress.env("HOST");
+    const port = Cypress.env("PORT");
+  
+    const url =
+      port && port !== "80" ? `${host}:${port}${path}` : `${host}${path}`;
+    cy.visit(url);
+  });
+  
+  Cypress.Commands.add("clickIfExists", (selector) => {
+    cy.get("body").then((body) => {
+      if (body.find(selector).length > 0) {
+        cy.get(selector).click();
+      }
+    });
+  });

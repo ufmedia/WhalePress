@@ -2,15 +2,12 @@ import { generate, count } from "random-words";
 
 const pageTitle = generate({ exactly: 3, join: " " });
 const pageSlug = pageTitle.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+const pageContent = generate({ exactly: 10, join: " " });
 
 describe("Create, View and Remove a Page", () => {
   beforeEach(() => {
     // Log in to WordPress before running tests
-    cy.visit(
-      `http://localhost${
-        Cypress.env("PORT") ? `:${Cypress.env("PORT")}` : ""
-      }/wp-admin`
-    );
+    cy.visitHost("/wp-admin");
     cy.wait(2000);
     cy.get("#user_login").type(Cypress.env("WP_USERNAME"));
     cy.get("#user_pass").type(Cypress.env("WP_PASSWORD"));
@@ -18,11 +15,7 @@ describe("Create, View and Remove a Page", () => {
   });
 
   it("creates a new page", () => {
-    cy.visit(
-      `http://localhost${
-        Cypress.env("PORT") ? `:${Cypress.env("PORT")}` : ""
-      }/wp-admin/post-new.php?post_type=page`
-    ); // Navigate to new page editor
+    cy.visitHost("/wp-admin/post-new.php?post_type=page"); // Navigate to new page editor
     cy.wait(2000);
     cy.get("#title").type(pageTitle);
     cy.get("#publish").click(); // Publish the page
@@ -31,21 +24,13 @@ describe("Create, View and Remove a Page", () => {
   });
 
   it("views the created page", () => {
-    cy.visit(
-      `http://localhost${
-        Cypress.env("PORT") ? `:${Cypress.env("PORT")}` : ""
-      }/${pageSlug}`
-    ); // Visit the newly created page by slug
+    cy.visitHost(`/${pageSlug}`); // Visit the newly created page by slug
     cy.wait(2000);
     cy.contains(pageTitle).should("be.visible");
   });
 
   it("deletes the created page", () => {
-    cy.visit(
-      `http://localhost${
-        Cypress.env("PORT") ? `:${Cypress.env("PORT")}` : ""
-      }/${pageSlug}`
-    ); // Visit the newly created page by slug
+    cy.visitHost(`/${pageSlug}`); // Visit the newly created page by slug
     cy.wait(2000);
     cy.get("#wp-admin-bar-edit a").click(); // Click the "Move to Trash" link
     cy.get("#delete-action a").click(); // Click the "Move to Trash" button
