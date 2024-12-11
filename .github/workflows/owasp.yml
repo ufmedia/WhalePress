@@ -3,8 +3,6 @@ on:
   #schedule:
     # Every 15 minutes
    # - cron: "*/15 * * * *"
-  push:
-    branches: ["main"]
   workflow_dispatch:
     inputs:
       target:
